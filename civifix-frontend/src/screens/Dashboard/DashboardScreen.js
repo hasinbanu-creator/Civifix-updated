@@ -3,14 +3,15 @@ import {
   ActivityIndicator,
   RefreshControl,
   ScrollView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View,
-  useWindowDimensions,
-  FlatList,
+  Platform,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
+import { useSafeAreaInsets } from "react-native-safe-area-context";
+import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import { AuthContext } from "../../context/AuthContext";
 import { Screen } from "../../components";
 import { COLORS, FONT_SIZES, SHADOWS, SPACING } from "../../constants/theme";
@@ -38,33 +39,40 @@ const STATUS_STYLES = {
 };
 
 const TYPE_META = {
-  ROAD_DAMAGE:  { icon: "road-variant",         color: "#DC2626", title: "Road Damage"          },
-  POTHOLE:      { icon: "road-variant",         color: "#DC2626", title: "Pothole"              },
-  GARBAGE:      { icon: "trash-can-outline",    color: "#0891B2", title: "Waste Collection"     },
-  STREETLIGHT:  { icon: "lightbulb-on-outline", color: COLORS.primary,  title: "Street Light"  },
-  WATER_SUPPLY: { icon: "water-outline",        color: COLORS.primary,  title: "Water Supply"  },
-  DRAINAGE:     { icon: "pipe-disconnected",    color: "#0891B2", title: "Drainage"             },
-  SANITATION:   { icon: "broom",                color: "#0891B2", title: "Sanitation"           },
-  TREE_CUTTING: { icon: "tree-outline",         color: "#059669", title: "Tree Issue"           },
-  CONSTRUCTION: { icon: "hammer-wrench",        color: "#D97706", title: "Construction"         },
-  OTHER:        { icon: "alert-outline",        color: "#DC2626", title: "Civic Issue"          },
+  ROAD_DAMAGE:  { icon: "road-variant",         color: "#DC2626", title: "Road Damage"      },
+  POTHOLE:      { icon: "road-variant",         color: "#DC2626", title: "Pothole"          },
+  GARBAGE:      { icon: "trash-can-outline",    color: "#0891B2", title: "Waste Collection" },
+  STREETLIGHT:  { icon: "lightbulb-on-outline", color: COLORS.primary, title: "Street Light" },
+  WATER_SUPPLY: { icon: "water-outline",        color: COLORS.primary, title: "Water Supply" },
+  DRAINAGE:     { icon: "pipe-disconnected",    color: "#0891B2", title: "Drainage"         },
+  SANITATION:   { icon: "broom",                color: "#0891B2", title: "Sanitation"       },
+  TREE_CUTTING: { icon: "tree-outline",         color: "#059669", title: "Tree Issue"       },
+  CONSTRUCTION: { icon: "hammer-wrench",        color: "#D97706", title: "Construction"     },
+  OTHER:        { icon: "alert-outline",        color: "#DC2626", title: "Civic Issue"      },
 };
 
 const ROLE_META = {
-  SUPER_ADMIN:    { label: "Super Admin",     color: COLORS.primary, bg: "#DBEAFE" },
-  DISTRICT_ADMIN: { label: "District Admin",  color: "#7C3AED",      bg: "#EDE9FE" },
-  INSPECTOR:      { label: "Inspector",       color: "#0891B2",      bg: "#CFFAFE" },
-  WORKER:         { label: "Worker",          color: "#059669",      bg: "#D1FAE5" },
-  CITIZEN:        { label: "Citizen",         color: "#D97706",      bg: "#FEF3C7" },
+  SUPER_ADMIN:    { label: "Super Admin",    color: COLORS.primary, bg: "#DBEAFE" },
+  DISTRICT_ADMIN: { label: "District Admin", color: "#7C3AED",      bg: "#EDE9FE" },
+  INSPECTOR:      { label: "Inspector",      color: "#0891B2",      bg: "#CFFAFE" },
+  WORKER:         { label: "Worker",         color: "#059669",      bg: "#D1FAE5" },
+  CITIZEN:        { label: "Citizen",        color: "#D97706",      bg: "#FEF3C7" },
 };
 
-// gradient per role
 const ROLE_GRADIENT = {
   SUPER_ADMIN:    ["#0052CC", "#172B4D"],
   DISTRICT_ADMIN: ["#5B21B6", "#2D1B69"],
   INSPECTOR:      ["#0E7490", "#164E63"],
   WORKER:         ["#065F46", "#022C22"],
   CITIZEN:        ["#0052CC", "#172B4D"],
+};
+
+const ROLE_GREETING = {
+  SUPER_ADMIN:    { title: "Civifix", sub: "Super Admin Panel"    },
+  DISTRICT_ADMIN: { title: "Civifix", sub: "District Admin Panel" },
+  INSPECTOR:      { title: "Civifix", sub: "Inspector Dashboard"  },
+  WORKER:         { title: "Civifix", sub: "Worker Dashboard"     },
+  CITIZEN:        { title: "Civifix", sub: "Citizen Platform"     },
 };
 
 // ─── SHARED MICRO-COMPONENTS ─────────────────────────────────────────────────
@@ -85,7 +93,10 @@ const Pill = ({ label, color, bg }) => (
 );
 
 const SectionTitle = ({ left, right, onRight }) => (
-  <View style={{ flexDirection: "row", justifyContent: "space-between", alignItems: "center", marginTop: SPACING.xl, marginBottom: SPACING.sm }}>
+  <View style={{
+    flexDirection: "row", justifyContent: "space-between", alignItems: "center",
+    marginTop: SPACING.xl, marginBottom: SPACING.sm,
+  }}>
     <Text style={{ color: COLORS.textDark, fontSize: FONT_SIZES.sm, fontWeight: "800" }}>{left}</Text>
     {right && (
       <TouchableOpacity onPress={onRight}>
@@ -95,7 +106,6 @@ const SectionTitle = ({ left, right, onRight }) => (
   </View>
 );
 
-/** Big metric tile */
 const MetricCard = ({ icon, value, label, color, bg }) => (
   <View style={{
     flex: 1, backgroundColor: COLORS.card, borderRadius: 12, padding: SPACING.md,
@@ -112,13 +122,6 @@ const MetricCard = ({ icon, value, label, color, bg }) => (
   </View>
 );
 
-const MetricRow = ({ metrics }) => (
-  <View style={{ flexDirection: "row", gap: SPACING.sm }}>
-    {metrics.map((m, i) => <MetricCard key={i} {...m} />)}
-  </View>
-);
-
-/** Complaint list item — clickable */
 const ComplaintItem = ({ complaint, index, total, onPress }) => {
   const type   = complaint.complaint_type || "OTHER";
   const meta   = TYPE_META[type] || TYPE_META.OTHER;
@@ -161,7 +164,6 @@ const ComplaintItem = ({ complaint, index, total, onPress }) => {
   );
 };
 
-/** Simple list item — view only (no press) */
 const InfoItem = ({ icon, iconColor, iconBg, primary, secondary, badge, badgeColor, badgeBg, index, total }) => (
   <View style={{
     flexDirection: "row", alignItems: "center",
@@ -188,7 +190,6 @@ const InfoItem = ({ icon, iconColor, iconBg, primary, secondary, badge, badgeCol
   </View>
 );
 
-/** Card wrapper */
 const ListCard = ({ children, empty, emptyLabel }) => (
   <View style={{ backgroundColor: COLORS.card, borderRadius: 12, overflow: "hidden", ...SHADOWS.md }}>
     {children}
@@ -203,7 +204,6 @@ const ListCard = ({ children, empty, emptyLabel }) => (
   </View>
 );
 
-/** Quick action button */
 const QuickActionBtn = ({ icon, title, color, onPress }) => (
   <TouchableOpacity
     activeOpacity={0.82}
@@ -221,21 +221,25 @@ const QuickActionBtn = ({ icon, title, color, onPress }) => (
     }}>
       <Icon name={icon} size={19} color={color} />
     </View>
-    <Text numberOfLines={2} adjustsFontSizeToFit minimumFontScale={0.8}
-      style={{ color: COLORS.textDark, fontSize: 9.5, lineHeight: 12, fontWeight: "800", textAlign: "center" }}>
+    <Text
+      numberOfLines={2}
+      adjustsFontSizeToFit
+      minimumFontScale={0.8}
+      style={{ color: COLORS.textDark, fontSize: 9.5, lineHeight: 12, fontWeight: "800", textAlign: "center" }}
+    >
       {title}
     </Text>
   </TouchableOpacity>
 );
 
-// ─── USER PROFILE CARD (shared across all roles) ─────────────────────────────
+// ─── USER PROFILE CARD ───────────────────────────────────────────────────────
 
 const UserProfileCard = ({ meData, user, stats }) => {
-  const displayName  = meData?.name ?? user?.name ?? "Welcome";
+  const displayName  = meData?.name  ?? user?.name  ?? "Welcome";
   const displayEmail = meData?.email ?? user?.email ?? "";
   const role         = meData?.role  ?? user?.role  ?? "CITIZEN";
   const district     = meData?.district ?? user?.district ?? "";
-  const roleMeta     = ROLE_META[role] ?? ROLE_META.CITIZEN;
+  const roleMeta     = ROLE_META[role]     ?? ROLE_META.CITIZEN;
   const roleGrad     = ROLE_GRADIENT[role] ?? ROLE_GRADIENT.CITIZEN;
   const avatarColor  = roleGrad[0];
 
@@ -281,11 +285,10 @@ const UserProfileCard = ({ meData, user, stats }) => {
 
 // ─── ROLE DASHBOARDS ─────────────────────────────────────────────────────────
 
-// 1. SUPER ADMIN
 const SuperAdminDashboard = ({ navigation, meData, user }) => {
-  const [stats, setStats]         = useState({});
+  const [stats, setStats]           = useState({});
   const [complaints, setComplaints] = useState([]);
-  const [loading, setLoading]     = useState(true);
+  const [loading, setLoading]       = useState(true);
 
   useEffect(() => { load(); }, []);
 
@@ -293,8 +296,8 @@ const SuperAdminDashboard = ({ navigation, meData, user }) => {
     setLoading(true);
     try {
       const [statsRes, complaintsRes] = await Promise.all([
-        authService.getAdminStats?.()       ?? Promise.resolve({}),
-        authService.getComplaints?.()       ?? Promise.resolve([]),
+        authService.getAdminStats?.() ?? Promise.resolve({}),
+        authService.getComplaints?.() ?? Promise.resolve([]),
       ]);
       setStats(statsRes?.data ?? statsRes ?? {});
       setComplaints(getItems(complaintsRes).slice(0, 5));
@@ -309,61 +312,48 @@ const SuperAdminDashboard = ({ navigation, meData, user }) => {
   ];
 
   const quickActions = [
-    { icon: "domain-plus",       title: "Create\nDistrict",      color: COLORS.primary,  onPress: () => navigation.navigate("CreateDistrictAdmin") },
-    { icon: "account-plus",      title: "Create\nInspector",     color: "#7C3AED",       onPress: () => navigation.navigate("CreateInspector") },
-    { icon: "hammer-wrench",     title: "Create\nWorker",        color: "#059669",       onPress: () => navigation.navigate("CreateWorker") },
-    { icon: "chart-bar",         title: "Reports",               color: COLORS.accent,   onPress: () => navigation.navigate("Reports") },
+    { icon: "domain-plus",   title: "Create\nDistrict",  color: COLORS.primary, onPress: () => navigation.navigate("CreateDistrictAdmin") },
+    { icon: "account-plus",  title: "Create\nInspector", color: "#7C3AED",      onPress: () => navigation.navigate("CreateInspector") },
+    { icon: "hammer-wrench", title: "Create\nWorker",    color: "#059669",      onPress: () => navigation.navigate("CreateWorker") },
+    { icon: "chart-bar",     title: "Reports",           color: COLORS.accent,  onPress: () => navigation.navigate("Reports") },
   ];
 
   const metrics = [
-    { icon: "map-marker-radius", value: stats.total_wards       ?? "—", label: "Total Wards",      color: COLORS.primary, bg: "#DBEAFE" },
-    { icon: "account-tie",       value: stats.total_inspectors  ?? "—", label: "Inspectors",       color: "#0891B2",      bg: "#CFFAFE" },
-    { icon: "account-hard-hat",  value: stats.total_workers     ?? "—", label: "Workers",          color: "#059669",      bg: "#D1FAE5" },
-    { icon: "clipboard-list",    value: stats.total_complaints  ?? complaints.length, label: "Complaints", color: "#D97706", bg: "#FEF3C7" },
+    { icon: "map-marker-radius", value: stats.total_wards      ?? "—", label: "Total Wards", color: COLORS.primary, bg: "#DBEAFE" },
+    { icon: "account-tie",       value: stats.total_inspectors ?? "—", label: "Inspectors",  color: "#0891B2",      bg: "#CFFAFE" },
+    { icon: "account-hard-hat",  value: stats.total_workers    ?? "—", label: "Workers",     color: "#059669",      bg: "#D1FAE5" },
+    { icon: "clipboard-list",    value: stats.total_complaints ?? complaints.length, label: "Complaints", color: "#D97706", bg: "#FEF3C7" },
   ];
 
   return (
     <>
       <UserProfileCard meData={meData} user={user} stats={profileStats} />
-
       <SectionTitle left="Quick Actions" />
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         {quickActions.map((a, i) => <QuickActionBtn key={i} {...a} />)}
       </View>
-
       <SectionTitle left="Overview" />
       <View style={{ flexDirection: "row", gap: SPACING.sm, flexWrap: "wrap" }}>
         {metrics.map((m, i) => (
-          <View key={i} style={{ width: "47.5%" }}>
-            <MetricCard {...m} />
-          </View>
+          <View key={i} style={{ width: "47.5%" }}><MetricCard {...m} /></View>
         ))}
       </View>
-
-      <SectionTitle
-        left="Recent Complaints"
-        right="View All"
-        onRight={() => navigation.getParent()?.navigate("Complaints")}
-      />
+      <SectionTitle left="Recent Complaints" right="View All" onRight={() => navigation.getParent()?.navigate("Complaints")} />
       <ListCard empty={!loading && complaints.length === 0} emptyLabel="No complaints yet.">
-        {loading ? (
-          <View style={{ padding: SPACING.xl }}><ActivityIndicator color={COLORS.primary} /></View>
-        ) : (
-          complaints.map((c, i) => (
-            <ComplaintItem
-              key={c._id || i} complaint={c} index={i} total={complaints.length}
-              onPress={() => navigation.navigate("ComplaintDetail", { complaint: c })}
-            />
-          ))
-        )}
+        {loading
+          ? <View style={{ padding: SPACING.xl }}><ActivityIndicator color={COLORS.primary} /></View>
+          : complaints.map((c, i) => (
+              <ComplaintItem key={c._id || i} complaint={c} index={i} total={complaints.length}
+                onPress={() => navigation.navigate("ComplaintDetail", { complaint: c })} />
+            ))
+        }
       </ListCard>
     </>
   );
 };
 
-// 2. DISTRICT ADMIN
 const DistrictAdminDashboard = ({ navigation, meData, user }) => {
-  const [data, setData]   = useState({ inspectors: [], workers: [], wards: [], users: [], complaints: [] });
+  const [data, setData]       = useState({ inspectors: [], workers: [], wards: [], users: [], complaints: [] });
   const [loading, setLoading] = useState(true);
 
   useEffect(() => { load(); }, []);
@@ -372,11 +362,11 @@ const DistrictAdminDashboard = ({ navigation, meData, user }) => {
     setLoading(true);
     try {
       const [insRes, workerRes, wardRes, usersRes, compRes] = await Promise.all([
-        authService.getInspectors?.()  ?? Promise.resolve([]),
-        authService.getWorkers?.()     ?? Promise.resolve([]),
-        authService.getWards?.()       ?? Promise.resolve([]),
+        authService.getInspectors?.()    ?? Promise.resolve([]),
+        authService.getWorkers?.()       ?? Promise.resolve([]),
+        authService.getWards?.()         ?? Promise.resolve([]),
         authService.getDistrictUsers?.() ?? Promise.resolve([]),
-        authService.getComplaints?.()  ?? Promise.resolve([]),
+        authService.getComplaints?.()    ?? Promise.resolve([]),
       ]);
       setData({
         inspectors: getItems(insRes).slice(0, 5),
@@ -396,104 +386,74 @@ const DistrictAdminDashboard = ({ navigation, meData, user }) => {
   ];
 
   const metrics = [
-    { icon: "map-marker-radius", value: data.wards.length,      label: "Wards",       color: COLORS.primary, bg: "#DBEAFE" },
-    { icon: "account-tie",       value: data.inspectors.length, label: "Inspectors",  color: "#7C3AED",      bg: "#EDE9FE" },
-    { icon: "account-hard-hat",  value: data.workers.length,    label: "Workers",     color: "#059669",      bg: "#D1FAE5" },
-    { icon: "clipboard-list",    value: data.complaints.length, label: "Complaints",  color: "#D97706",      bg: "#FEF3C7" },
+    { icon: "map-marker-radius", value: data.wards.length,      label: "Wards",      color: COLORS.primary, bg: "#DBEAFE" },
+    { icon: "account-tie",       value: data.inspectors.length, label: "Inspectors", color: "#7C3AED",      bg: "#EDE9FE" },
+    { icon: "account-hard-hat",  value: data.workers.length,    label: "Workers",    color: "#059669",      bg: "#D1FAE5" },
+    { icon: "clipboard-list",    value: data.complaints.length, label: "Complaints", color: "#D97706",      bg: "#FEF3C7" },
   ];
 
-  const LoadingRow = () => (
-    <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
-  );
+  const L = () => <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>;
 
   return (
     <>
       <UserProfileCard meData={meData} user={user} stats={profileStats} />
-
       <SectionTitle left="District Overview" />
       <View style={{ flexDirection: "row", gap: SPACING.sm, flexWrap: "wrap" }}>
-        {metrics.map((m, i) => (
-          <View key={i} style={{ width: "47.5%" }}><MetricCard {...m} /></View>
-        ))}
+        {metrics.map((m, i) => <View key={i} style={{ width: "47.5%" }}><MetricCard {...m} /></View>)}
       </View>
-
-      {/* Complaints — clickable */}
-      <SectionTitle
-        left="Complaints"
-        right="View All"
-        onRight={() => navigation.getParent()?.navigate("Complaints")}
-      />
+      <SectionTitle left="Complaints" right="View All" onRight={() => navigation.getParent()?.navigate("Complaints")} />
       <ListCard empty={!loading && data.complaints.length === 0} emptyLabel="No complaints found.">
-        {loading ? <LoadingRow /> : data.complaints.map((c, i) => (
-          <ComplaintItem
-            key={c._id || i} complaint={c} index={i} total={data.complaints.length}
-            onPress={() => navigation.navigate("ComplaintDetail", { complaint: c })}
-          />
+        {loading ? <L /> : data.complaints.map((c, i) => (
+          <ComplaintItem key={c._id || i} complaint={c} index={i} total={data.complaints.length}
+            onPress={() => navigation.navigate("ComplaintDetail", { complaint: c })} />
         ))}
       </ListCard>
-
-      {/* Inspectors — view only */}
       <SectionTitle left="Inspectors" right="View All" onRight={() => navigation.navigate("InspectorsList")} />
       <ListCard empty={!loading && data.inspectors.length === 0} emptyLabel="No inspectors assigned.">
-        {loading ? <LoadingRow /> : data.inspectors.map((ins, i) => (
-          <InfoItem
-            key={ins._id || i} index={i} total={data.inspectors.length}
+        {loading ? <L /> : data.inspectors.map((ins, i) => (
+          <InfoItem key={ins._id || i} index={i} total={data.inspectors.length}
             icon="account-tie" iconColor="#0891B2" iconBg="#CFFAFE"
             primary={ins.name || ins.email || "Inspector"}
             secondary={ins.ward_name ? `Ward: ${ins.ward_name}` : ins.email}
-            badge={ins.status ?? "Active"} badgeColor="#059669" badgeBg="#D1FAE5"
-          />
+            badge={ins.status ?? "Active"} badgeColor="#059669" badgeBg="#D1FAE5" />
         ))}
       </ListCard>
-
-      {/* Workers — view only */}
       <SectionTitle left="Workers" right="View All" onRight={() => navigation.navigate("WorkersList")} />
       <ListCard empty={!loading && data.workers.length === 0} emptyLabel="No workers assigned.">
-        {loading ? <LoadingRow /> : data.workers.map((w, i) => (
-          <InfoItem
-            key={w._id || i} index={i} total={data.workers.length}
+        {loading ? <L /> : data.workers.map((w, i) => (
+          <InfoItem key={w._id || i} index={i} total={data.workers.length}
             icon="account-hard-hat" iconColor="#059669" iconBg="#D1FAE5"
             primary={w.name || w.email || "Worker"}
             secondary={w.ward_name ? `Ward: ${w.ward_name}` : w.email}
             badge={w.active_tasks != null ? `${w.active_tasks} tasks` : undefined}
-            badgeColor={COLORS.primary} badgeBg="#DBEAFE"
-          />
+            badgeColor={COLORS.primary} badgeBg="#DBEAFE" />
         ))}
       </ListCard>
-
-      {/* Wards — view only */}
       <SectionTitle left="Wards" right="View All" onRight={() => navigation.navigate("WardsList")} />
       <ListCard empty={!loading && data.wards.length === 0} emptyLabel="No wards found.">
-        {loading ? <LoadingRow /> : data.wards.map((w, i) => (
-          <InfoItem
-            key={w._id || i} index={i} total={data.wards.length}
+        {loading ? <L /> : data.wards.map((w, i) => (
+          <InfoItem key={w._id || i} index={i} total={data.wards.length}
             icon="map-marker-radius" iconColor={COLORS.primary} iconBg="#DBEAFE"
             primary={w.ward_name || w.name || "Ward"}
             secondary={w.zone ?? w.area ?? undefined}
             badge={w.complaint_count != null ? `${w.complaint_count} complaints` : undefined}
-            badgeColor="#D97706" badgeBg="#FEF3C7"
-          />
+            badgeColor="#D97706" badgeBg="#FEF3C7" />
         ))}
       </ListCard>
-
-      {/* District Users — view only */}
       <SectionTitle left="District Users" right="View All" onRight={() => navigation.navigate("UsersList")} />
       <ListCard empty={!loading && data.users.length === 0} emptyLabel="No users found.">
-        {loading ? <LoadingRow /> : data.users.map((u, i) => (
-          <InfoItem
-            key={u._id || i} index={i} total={data.users.length}
+        {loading ? <L /> : data.users.map((u, i) => (
+          <InfoItem key={u._id || i} index={i} total={data.users.length}
             icon="account-outline" iconColor="#7C3AED" iconBg="#EDE9FE"
             primary={u.name || u.email || "User"}
             secondary={u.email}
-            badge={u.role} badgeColor="#7C3AED" badgeBg="#EDE9FE"
-          />
+            badge={u.role} badgeColor="#7C3AED" badgeBg="#EDE9FE" />
         ))}
       </ListCard>
     </>
   );
 };
 
-// 3. INSPECTOR
 const InspectorDashboard = ({ navigation, meData, user }) => {
   const [complaints, setComplaints] = useState([]);
   const [workers, setWorkers]       = useState([]);
@@ -505,8 +465,8 @@ const InspectorDashboard = ({ navigation, meData, user }) => {
     setLoading(true);
     try {
       const [compRes, workerRes] = await Promise.all([
-        authService.getWardComplaints?.()  ?? Promise.resolve([]),
-        authService.getWardWorkers?.()     ?? Promise.resolve([]),
+        authService.getWardComplaints?.() ?? Promise.resolve([]),
+        authService.getWardWorkers?.()    ?? Promise.resolve([]),
       ]);
       setComplaints(getItems(compRes));
       setWorkers(getItems(workerRes).slice(0, 10));
@@ -515,79 +475,61 @@ const InspectorDashboard = ({ navigation, meData, user }) => {
   };
 
   const counts = useMemo(() => ({
-    open:     complaints.filter((c) => c.status === "OPEN").length,
-    working:  complaints.filter((c) => c.status === "WORKING").length,
-    review:   complaints.filter((c) => c.status === "APPROVAL").length,
-    closed:   complaints.filter((c) => c.status === "CLOSED").length,
+    open:    complaints.filter((c) => c.status === "OPEN").length,
+    working: complaints.filter((c) => c.status === "WORKING").length,
+    review:  complaints.filter((c) => c.status === "APPROVAL").length,
+    closed:  complaints.filter((c) => c.status === "CLOSED").length,
   }), [complaints]);
 
   const metrics = [
-    { icon: "alert-circle-outline",  value: counts.open,    label: "Open",        color: "#D97706", bg: "#FEF3C7" },
-    { icon: "progress-wrench",       value: counts.working, label: "In Progress", color: COLORS.primary, bg: "#DBEAFE" },
-    { icon: "eye-check-outline",     value: counts.review,  label: "In Review",   color: "#0891B2", bg: "#CFFAFE" },
-    { icon: "check-circle-outline",  value: counts.closed,  label: "Resolved",    color: "#059669", bg: "#D1FAE5" },
+    { icon: "alert-circle-outline", value: counts.open,    label: "Open",        color: "#D97706",      bg: "#FEF3C7" },
+    { icon: "progress-wrench",      value: counts.working, label: "In Progress", color: COLORS.primary, bg: "#DBEAFE" },
+    { icon: "eye-check-outline",    value: counts.review,  label: "In Review",   color: "#0891B2",      bg: "#CFFAFE" },
+    { icon: "check-circle-outline", value: counts.closed,  label: "Resolved",    color: "#059669",      bg: "#D1FAE5" },
   ];
 
   const profileStats = [
-    { value: complaints.length,  label: "Total"    },
-    { value: counts.open,        label: "Open"     },
-    { value: counts.closed,      label: "Resolved" },
+    { value: complaints.length, label: "Total"    },
+    { value: counts.open,       label: "Open"     },
+    { value: counts.closed,     label: "Resolved" },
   ];
 
   return (
     <>
       <UserProfileCard meData={meData} user={user} stats={profileStats} />
-
       <SectionTitle left="Ward Overview" />
       <View style={{ flexDirection: "row", gap: SPACING.sm, flexWrap: "wrap" }}>
-        {metrics.map((m, i) => (
-          <View key={i} style={{ width: "47.5%" }}><MetricCard {...m} /></View>
-        ))}
+        {metrics.map((m, i) => <View key={i} style={{ width: "47.5%" }}><MetricCard {...m} /></View>)}
       </View>
-
-      {/* Ward Complaints — clickable + assignable */}
-      <SectionTitle
-        left="Ward Complaints"
-        right="View All"
-        onRight={() => navigation.getParent()?.navigate("Complaints")}
-      />
+      <SectionTitle left="Ward Complaints" right="View All" onRight={() => navigation.getParent()?.navigate("Complaints")} />
       <ListCard empty={!loading && complaints.length === 0} emptyLabel="No complaints in your ward.">
-        {loading ? (
-          <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
-        ) : (
-          complaints.slice(0, 5).map((c, i, arr) => (
-            <ComplaintItem
-              key={c._id || i} complaint={c} index={i} total={arr.length}
-              onPress={() => navigation.navigate("ComplaintDetail", { complaint: c, canAssign: true, workers })}
-            />
-          ))
-        )}
+        {loading
+          ? <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
+          : complaints.slice(0, 5).map((c, i, arr) => (
+              <ComplaintItem key={c._id || i} complaint={c} index={i} total={arr.length}
+                onPress={() => navigation.navigate("ComplaintDetail", { complaint: c, canAssign: true, workers })} />
+            ))
+        }
       </ListCard>
-
-      {/* Workers in ward — view only but shown in bottom tab */}
       <SectionTitle left="My Ward Workers" right="View All" onRight={() => navigation.navigate("WorkersList")} />
       <ListCard empty={!loading && workers.length === 0} emptyLabel="No workers in your ward.">
-        {loading ? (
-          <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
-        ) : (
-          workers.map((w, i) => (
-            <InfoItem
-              key={w._id || i} index={i} total={workers.length}
-              icon="account-hard-hat" iconColor="#059669" iconBg="#D1FAE5"
-              primary={w.name || w.email || "Worker"}
-              secondary={w.email}
-              badge={w.active_tasks != null ? `${w.active_tasks} tasks` : "Available"}
-              badgeColor={w.active_tasks > 0 ? "#D97706" : "#059669"}
-              badgeBg={w.active_tasks > 0 ? "#FEF3C7" : "#D1FAE5"}
-            />
-          ))
-        )}
+        {loading
+          ? <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
+          : workers.map((w, i) => (
+              <InfoItem key={w._id || i} index={i} total={workers.length}
+                icon="account-hard-hat" iconColor="#059669" iconBg="#D1FAE5"
+                primary={w.name || w.email || "Worker"}
+                secondary={w.email}
+                badge={w.active_tasks != null ? `${w.active_tasks} tasks` : "Available"}
+                badgeColor={w.active_tasks > 0 ? "#D97706" : "#059669"}
+                badgeBg={w.active_tasks > 0 ? "#FEF3C7" : "#D1FAE5"} />
+            ))
+        }
       </ListCard>
     </>
   );
 };
 
-// 4. WORKER
 const WorkerDashboard = ({ navigation, meData, user }) => {
   const [assigned, setAssigned] = useState([]);
   const [loading, setLoading]   = useState(true);
@@ -624,34 +566,24 @@ const WorkerDashboard = ({ navigation, meData, user }) => {
   return (
     <>
       <UserProfileCard meData={meData} user={user} stats={profileStats} />
-
       <SectionTitle left="My Tasks" />
       <View style={{ flexDirection: "row", gap: SPACING.sm }}>
         {metrics.map((m, i) => <MetricCard key={i} {...m} />)}
       </View>
-
-      <SectionTitle
-        left="Assigned Complaints"
-        right="View All"
-        onRight={() => navigation.getParent()?.navigate("Complaints")}
-      />
+      <SectionTitle left="Assigned Complaints" right="View All" onRight={() => navigation.getParent()?.navigate("Complaints")} />
       <ListCard empty={!loading && assigned.length === 0} emptyLabel="No tasks assigned yet.">
-        {loading ? (
-          <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
-        ) : (
-          assigned.map((c, i) => (
-            <ComplaintItem
-              key={c._id || i} complaint={c} index={i} total={assigned.length}
-              onPress={() => navigation.navigate("ComplaintDetail", { complaint: c, workerView: true })}
-            />
-          ))
-        )}
+        {loading
+          ? <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
+          : assigned.map((c, i) => (
+              <ComplaintItem key={c._id || i} complaint={c} index={i} total={assigned.length}
+                onPress={() => navigation.navigate("ComplaintDetail", { complaint: c, workerView: true })} />
+            ))
+        }
       </ListCard>
     </>
   );
 };
 
-// 5. CITIZEN (original but slightly polished)
 const CitizenDashboard = ({ navigation, meData, user }) => {
   const [complaints, setComplaints] = useState([]);
   const [loading, setLoading]       = useState(true);
@@ -669,7 +601,7 @@ const CitizenDashboard = ({ navigation, meData, user }) => {
 
   const counts = useMemo(() => ({
     open:   complaints.filter((c) => c.status === "OPEN").length,
-    active: complaints.filter((c) => ["WORKING","APPROVAL"].includes(c.status)).length,
+    active: complaints.filter((c) => ["WORKING", "APPROVAL"].includes(c.status)).length,
     closed: complaints.filter((c) => c.status === "CLOSED").length,
   }), [complaints]);
 
@@ -680,37 +612,31 @@ const CitizenDashboard = ({ navigation, meData, user }) => {
   ];
 
   const quickActions = [
-    { icon: "flask-outline",       title: "Raise\nComplaint",  color: COLORS.secondary, onPress: () => navigation.navigate("CreateComplaint") },
-    { icon: "magnify",             title: "Track\nStatus",     color: COLORS.primary,   onPress: () => navigation.getParent()?.navigate("Complaints") },
-    { icon: "map-marker-outline",  title: "Nearby\nOffices",   color: COLORS.primary,   onPress: () => {} },
-    { icon: "bell-outline",        title: "Notifications",     color: COLORS.darkBg,    onPress: () => navigation.getParent()?.navigate("Profile") },
+    { icon: "flask-outline",      title: "Raise\nComplaint", color: COLORS.secondary, onPress: () => navigation.navigate("CreateComplaint") },
+    { icon: "magnify",            title: "Track\nStatus",    color: COLORS.primary,   onPress: () => navigation.getParent()?.navigate("Complaints") },
+    { icon: "map-marker-outline", title: "Nearby\nOffices",  color: COLORS.primary,   onPress: () => {} },
+    { icon: "bell-outline",       title: "Notifications",    color: COLORS.darkBg,    onPress: () => navigation.getParent()?.navigate("Profile") },
   ];
 
   return (
     <>
       <UserProfileCard meData={meData} user={user} stats={profileStats} />
-
       <SectionTitle left="Quick Actions" />
       <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
         {quickActions.map((a, i) => <QuickActionBtn key={i} {...a} />)}
       </View>
-
-      <SectionTitle
-        left="My Complaints"
-        right="View All"
-        onRight={() => navigation.getParent()?.navigate("Complaints")}
-      />
-      <ListCard empty={!loading && complaints.length === 0} emptyLabel={"No complaints yet.\nTap 'Raise Complaint' to get started."}>
-        {loading ? (
-          <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
-        ) : (
-          complaints.map((c, i) => (
-            <ComplaintItem
-              key={c._id || i} complaint={c} index={i} total={complaints.length}
-              onPress={() => navigation.navigate("ComplaintDetail", { complaint: c })}
-            />
-          ))
-        )}
+      <SectionTitle left="My Complaints" right="View All" onRight={() => navigation.getParent()?.navigate("Complaints")} />
+      <ListCard
+        empty={!loading && complaints.length === 0}
+        emptyLabel={"No complaints yet.\nTap 'Raise Complaint' to get started."}
+      >
+        {loading
+          ? <View style={{ padding: SPACING.lg }}><ActivityIndicator color={COLORS.primary} /></View>
+          : complaints.map((c, i) => (
+              <ComplaintItem key={c._id || i} complaint={c} index={i} total={complaints.length}
+                onPress={() => navigation.navigate("ComplaintDetail", { complaint: c })} />
+            ))
+        }
       </ListCard>
     </>
   );
@@ -719,10 +645,13 @@ const CitizenDashboard = ({ navigation, meData, user }) => {
 // ─── MAIN SCREEN ─────────────────────────────────────────────────────────────
 
 export const DashboardScreen = ({ navigation }) => {
-  const { user } = useContext(AuthContext);
-  const [meData, setMeData]     = useState(null);
+  const { user }                    = useContext(AuthContext);
+  const [meData, setMeData]         = useState(null);
   const [refreshing, setRefreshing] = useState(false);
   const [refreshKey, setRefreshKey] = useState(0);
+
+  // ── Safe area insets — works on both iOS and Android ──
+  const insets = useSafeAreaInsets();
 
   useEffect(() => { loadMe(); }, []);
 
@@ -736,21 +665,13 @@ export const DashboardScreen = ({ navigation }) => {
   const onRefresh = async () => {
     setRefreshing(true);
     await loadMe();
-    setRefreshKey((k) => k + 1); // triggers child re-mount
+    setRefreshKey((k) => k + 1);
     setRefreshing(false);
   };
 
-  const role = meData?.role ?? user?.role ?? "CITIZEN";
+  const role     = meData?.role ?? user?.role ?? "CITIZEN";
   const gradient = ROLE_GRADIENT[role] ?? ROLE_GRADIENT.CITIZEN;
-
-  // Role label for greeting
-  const roleGreeting = {
-    SUPER_ADMIN:    "Super Admin Panel",
-    DISTRICT_ADMIN: "District Admin Panel",
-    INSPECTOR:      "Inspector Dashboard",
-    WORKER:         "Worker Dashboard",
-    CITIZEN:        "Citizen Platform",
-  }[role] ?? "Civifix";
+  const greeting = ROLE_GREETING[role] ?? ROLE_GREETING.CITIZEN;
 
   const RoleDashboard = useCallback(() => {
     const props = { navigation, meData, user, key: refreshKey };
@@ -764,59 +685,93 @@ export const DashboardScreen = ({ navigation }) => {
   }, [role, refreshKey, meData]);
 
   return (
-    <Screen
-      scroll={false}
-      backgroundColor={COLORS.background}
-      maxWidth={430}
-      contentStyle={{ flex: 1, paddingHorizontal: 0, paddingTop: 0 }}
-    >
+    <View style={{ flex: 1, backgroundColor: COLORS.background }}>
+      {/*
+        ─── STATUS BAR CONFIG ────────────────────────────────────────────────
+        translucent        → content renders BEHIND the status bar (Android)
+        backgroundColor    → removes the default opaque bar
+        barStyle           → white clock/icons on the dark gradient
+        ─────────────────────────────────────────────────────────────────────
+      */}
+      <StatusBar
+        translucent
+        backgroundColor="transparent"
+        barStyle="light-content"
+      />
+
       <ScrollView
         showsVerticalScrollIndicator={false}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            progressViewOffset={insets.top + 8}
+            tintColor="#FFFFFF"
+            colors={["#FFFFFF"]}
+          />
+        }
         contentContainerStyle={{ paddingBottom: SPACING.xxl + 18 }}
       >
-        {/* ── Gradient header ── */}
+        {/*
+          ─── GRADIENT HEADER ─────────────────────────────────────────────────
+          paddingTop uses insets.top (from useSafeAreaInsets):
+            • iOS  → actual notch / Dynamic Island height  (e.g. 44–59 px)
+            • Android → status bar height (StatusBar.currentHeight)
+          This is the ONLY reliable cross-platform way to do this.
+          ─────────────────────────────────────────────────────────────────────
+        */}
         <LinearGradient
           colors={gradient}
           start={{ x: 0, y: 0 }}
           end={{ x: 1, y: 1 }}
           style={{
             paddingHorizontal: SPACING.lg,
-            paddingTop: SPACING.xxl,
-            paddingBottom: 70,
+            paddingTop: insets.top + SPACING.md,   // ← key: push content below status bar
+            paddingBottom: 72,
             borderBottomLeftRadius: 28,
             borderBottomRightRadius: 28,
           }}
         >
           <View style={{ flexDirection: "row", alignItems: "center", justifyContent: "space-between" }}>
+            {/* Logo + title */}
             <View style={{ flexDirection: "row", alignItems: "center", flex: 1 }}>
               <View style={{
-                width: 36, height: 36, borderRadius: 18,
+                width: 38, height: 38, borderRadius: 19,
                 backgroundColor: "rgba(255,255,255,0.18)",
                 alignItems: "center", justifyContent: "center", marginRight: SPACING.sm,
               }}>
-                <Icon name="city-variant-outline" size={21} color={COLORS.card} />
+                <Icon name="city-variant-outline" size={22} color="#FFFFFF" />
               </View>
               <View>
-                <Text style={{ color: COLORS.card, fontSize: FONT_SIZES.xl, fontWeight: "800" }}>Civifix</Text>
-                <Text style={{ color: COLORS.card, fontSize: FONT_SIZES.xs, opacity: 0.92 }}>{roleGreeting}</Text>
+                <Text style={{ color: "#FFFFFF", fontSize: FONT_SIZES.xl, fontWeight: "800", letterSpacing: 0.3 }}>
+                  {greeting.title}
+                </Text>
+                <Text style={{ color: "rgba(255,255,255,0.85)", fontSize: FONT_SIZES.xs }}>
+                  {greeting.sub}
+                </Text>
               </View>
             </View>
+
+            {/* Bell */}
             <TouchableOpacity
               onPress={() => navigation.getParent()?.navigate("Profile")}
-              style={{ width: 36, height: 36, borderRadius: 18, alignItems: "center", justifyContent: "center" }}
+              style={{
+                width: 38, height: 38, borderRadius: 19,
+                backgroundColor: "rgba(255,255,255,0.15)",
+                alignItems: "center", justifyContent: "center",
+              }}
             >
-              <Icon name="bell-outline" size={22} color={COLORS.card} />
+              <Icon name="bell-outline" size={20} color="#FFFFFF" />
             </TouchableOpacity>
           </View>
         </LinearGradient>
 
-        {/* ── Role-based content ── */}
-        <View style={{ paddingHorizontal: SPACING.lg, marginTop: -50 }}>
+        {/* Role content overlapping the gradient curve */}
+        <View style={{ paddingHorizontal: SPACING.lg, marginTop: -52 }}>
           <RoleDashboard />
         </View>
       </ScrollView>
-    </Screen>
+    </View>
   );
 };
 
