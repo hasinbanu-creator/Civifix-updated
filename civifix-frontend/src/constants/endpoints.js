@@ -1,7 +1,7 @@
 import { Platform } from "react-native";
 import Constants from "expo-constants";
 
-const DEFAULT_API_URL = "http://localhost:8000/api/v1";
+const DEFAULT_API_URL = "http://0.0.0.0:8000/api/v1";
 
 const getMetroHost = () => {
   const hostUri =

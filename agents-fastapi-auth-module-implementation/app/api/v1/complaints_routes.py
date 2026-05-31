@@ -69,32 +69,6 @@ async def create_complaint(
 
 
 @router.get(
-    "/{complaint_id}",
-    response_model=dict,
-    summary="Get Complaint Details",
-    tags=["Complaints"]
-)
-async def get_complaint(
-    complaint_id: str,
-    current_user: dict = Depends(get_current_user),
-    service: ComplaintService = Depends(get_complaint_service)
-):
-    """Get complaint details with history"""
-    try:
-        result = await service.get_complaint(complaint_id)
-        return SuccessResponse.create(
-            data=result,
-            message="Complaint fetched successfully"
-        )
-    except CivifixException as e:
-        logger.error(f"Complaint fetch error: {str(e)}")
-        raise HTTPException(status_code=e.status_code, detail=str(e))
-    except Exception as e:
-        logger.error(f"Unexpected error: {str(e)}")
-        raise HTTPException(status_code=500, detail="Internal server error")
-
-
-@router.get(
     "/my/dashboard",
     response_model=dict,
     summary="My Complaints",
@@ -121,6 +95,32 @@ async def my_complaints(
         )
     except CivifixException as e:
         logger.error(f"Error fetching complaints: {str(e)}")
+        raise HTTPException(status_code=e.status_code, detail=str(e))
+    except Exception as e:
+        logger.error(f"Unexpected error: {str(e)}")
+        raise HTTPException(status_code=500, detail="Internal server error")
+
+
+@router.get(
+    "/{complaint_id}",
+    response_model=dict,
+    summary="Get Complaint Details",
+    tags=["Complaints"]
+)
+async def get_complaint(
+    complaint_id: str,
+    current_user: dict = Depends(get_current_user),
+    service: ComplaintService = Depends(get_complaint_service)
+):
+    """Get complaint details with history"""
+    try:
+        result = await service.get_complaint(complaint_id)
+        return SuccessResponse.create(
+            data=result,
+            message="Complaint fetched successfully"
+        )
+    except CivifixException as e:
+        logger.error(f"Complaint fetch error: {str(e)}")
         raise HTTPException(status_code=e.status_code, detail=str(e))
     except Exception as e:
         logger.error(f"Unexpected error: {str(e)}")

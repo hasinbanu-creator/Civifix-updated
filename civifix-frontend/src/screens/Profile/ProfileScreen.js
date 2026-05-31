@@ -287,7 +287,7 @@ export const ProfileScreen = ({ navigation }) => {
                 marginTop: SPACING.xs,
               }}
             >
-              © 2024 CiviFix. All rights reserved.
+              © 6 CiviFix. All rights reserved.
             </Text>
           </View>
         </View>

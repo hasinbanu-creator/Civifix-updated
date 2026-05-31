@@ -80,31 +80,24 @@ async def create_district(
 
 @router.get(
     "/districts",
-    summary="Get all districts",
-    dependencies=[Depends(require_role("SUPER_ADMIN", "DISTRICT_ADMIN"))]
+    summary="Get all districts"
 )
 async def get_districts(
-    active_only: bool = Query(False, description="Only return active districts"),
-    current_user: Dict[str, Any] = Depends(get_current_super_admin)
+    active_only: bool = Query(False, description="Only return active districts")
 ):
-    """
-    Get all districts.
-    
-    - **active_only**: Filter to only active districts (optional)
-    """
     try:
         if active_only:
             districts = await DistrictService.get_active_districts()
         else:
             districts = await DistrictService.get_all_districts()
-        
+
         districts = serialize_mongo_documents(districts)
-        
+
         return ResponseHandler.success(
             message="Districts retrieved",
             data=districts
         )
-    
+
     except Exception as e:
         return ResponseHandler.error(
             message="Failed to retrieve districts",
@@ -120,11 +113,11 @@ async def get_districts(
 @router.get(
     "/districts/{district_id}",
     summary="Get district by ID",
-    dependencies=[Depends(require_role("SUPER_ADMIN", "DISTRICT_ADMIN"))]
+    # dependencies=[Depends(require_role("SUPER_ADMIN", "DISTRICT_ADMIN"))]
 )
 async def get_district(
     district_id: str,
-    current_user: Dict[str, Any] = Depends(get_current_super_admin)
+    # current_user: Dict[str, Any] = Depends(get_current_super_admin)
 ):
     """Get a specific district by ID"""
     try:
