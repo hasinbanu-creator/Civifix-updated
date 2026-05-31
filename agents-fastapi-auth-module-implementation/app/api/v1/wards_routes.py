@@ -124,7 +124,6 @@ async def list_wards(
     page: int = 1,
     limit: int = 10,
     is_active: bool = None,
-    current_user: dict = Depends(get_current_user),
     service: WardService = Depends(get_ward_service)
 ):
     """List wards in a district with pagination"""
