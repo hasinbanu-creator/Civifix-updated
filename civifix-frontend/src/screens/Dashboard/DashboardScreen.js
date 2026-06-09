@@ -258,7 +258,7 @@ const UserProfileCard = ({ meData, user, stats }) => {
           )}
           <View style={{ flexDirection: "row", gap: 6, marginTop: 5, flexWrap: "wrap" }}>
             <Pill label={roleMeta.label} color={roleMeta.color} bg={roleMeta.bg} />
-            {!!district && <Pill label={`📍 ${district}`} color="#059669" bg="#D1FAE5" />}
+            {/* {!!district && <Pill label={`📍 ${district}`} color="#059669" bg="#D1FAE5" />} */}
           </View>
         </View>
       </View>

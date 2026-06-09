@@ -143,10 +143,12 @@ export const authService = {
     return unwrapResponse(res);
   },
 
-  getWardsByDistrict: async (districtId) => {
-  const res = await api.get(`/api/v1/wards/district/${districtId}`);
-  return unwrapResponse(res);
-},
+  getWardsByDistrict: async (districtId, { page = 1, is_active = true, limit = 60} = {}) => {
+    const res = await api.get(`/wards/district/${districtId}`, {
+      params: { page, is_active, limit }
+    });
+    return unwrapResponse(res);
+  },
 
 };
 

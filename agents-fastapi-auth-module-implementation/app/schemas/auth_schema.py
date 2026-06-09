@@ -17,7 +17,7 @@ class RegisterSchema(BaseModel):
             "email": "user@gmail.com",
             "mobile_number": "9876543210",
             "address": "Chennai",
-            "district": "Chennai"
+            "district": "6a156a1258884d22663b2a06"
         }
 
 

@@ -17,6 +17,7 @@ import {
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import { AuthContext } from "../../context/AuthContext";
 import { COLORS, SPACING, FONT_SIZES, SHADOWS } from "../../constants/theme";
+import { API_URL, ENDPOINTS } from "../../constants/endpoints";
 
 const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
 
@@ -32,7 +33,7 @@ const GRAY_600 = "#4B5563";
 const GRAY_800 = "#1F2937";
 
 /* ── API ── */
-const API_BASE = "http://192.168.1.9:8000/api/v1";
+const API_BASE = API_URL;
 
 async function fetchDistricts() {
   const res = await fetch(`${API_BASE}/admin/districts?active_only=false`, {
@@ -44,6 +45,7 @@ async function fetchDistricts() {
   console.log("[Districts] Count:", json.data?.length);
   return json.data || [];
 }
+
 
 /* ── DistrictDropdown ── */
 function DistrictDropdown({ value, districts, loading, onSelect, error }) {
@@ -173,8 +175,8 @@ export const RegisterScreen = ({ navigation }) => {
         setDistrictsError(false);
       })
       .catch((err) => {
+        console.error("District fetch error:", err);
         setDistrictsError(true);
-        setDistricts([]);
       })
       .finally(() => setDistrictsLoading(false));
   };
@@ -213,8 +215,7 @@ export const RegisterScreen = ({ navigation }) => {
         email: formData.email.trim().toLowerCase(),
         mobile_number: formData.mobile_number.replace(/\D/g, ""),
         address: formData.address.trim(),
-        district: selected?.name || "",
-        district_id: formData.district_id,
+        district: formData.district_id,
       });
       navigation.navigate("VerifyRegister", {
         email: formData.email.trim().toLowerCase(),

@@ -293,12 +293,22 @@ class WardService:
         """Format ward document for response"""
         if not ward:
             return None
-        
+        label = None
+        wn = ward.get("ward_number")
+        wname = ward.get("ward_name")
+        if wn is not None and wname:
+            label = f"{wn} - {wname}"
+        elif wname:
+            label = wname
+        elif wn is not None:
+            label = str(wn)
+
         return {
             "_id": str(ward.get("_id", "")),
             "district_id": str(ward.get("district_id", "")),
             "ward_name": ward.get("ward_name"),
             "ward_number": ward.get("ward_number"),
+            "label": label,
             "inspector_id": str(ward.get("inspector_id", "")) if ward.get("inspector_id") else None,
             "description": ward.get("description"),
             "is_active": ward.get("is_active", True),

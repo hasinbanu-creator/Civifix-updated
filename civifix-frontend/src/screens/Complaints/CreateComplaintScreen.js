@@ -68,12 +68,13 @@ const Dropdown = ({ label, placeholder, value, items, onSelect, error, renderIte
           minHeight: 48,
         }}
       >
-        {dropLoading
-          ? <ActivityIndicator size="small" color={COLORS.primary} style={{ marginRight: 8 }} />
-          : selected?.icon
-            ? <Icon name={selected.icon} size={18} color={selected.color ?? COLORS.primary} style={{ marginRight: 8 }} />
-            : <Icon name="chevron-down" size={18} color={COLORS.textLight} style={{ marginRight: 8 }} />
-        }
+        {dropLoading ? (
+          <ActivityIndicator size="small" color={COLORS.primary} style={{ marginRight: 8 }} />
+        ) : selected?.icon ? (
+          <Icon name={selected.icon} size={18} color={selected.color ?? COLORS.primary} style={{ marginRight: 8 }} />
+        ) : (
+          <View style={{ width: 18, marginRight: 8 }} />
+        )}
         <Text style={{
           flex: 1,
           fontSize: FONT_SIZES.sm,
@@ -255,12 +256,9 @@ export const CreateComplaintScreen = ({ navigation }) => {
     setWardsLoading(true);
     try {
       const districtId = user?.district_id ?? user?.district ?? DEFAULT_DISTRICT_ID;
-      const res = await authService.getWardsByDistrict(districtId);
-      // Accept various response shapes
-      const list = Array.isArray(res) ? res
-        : Array.isArray(res?.data) ? res.data
-        : Array.isArray(res?.wards) ? res.wards
-        : [];
+      const res = await authService.getWardsByDistrict(districtId, { page: 1, is_active: true });
+      // Expected shape: { data: [ward,...], total, page, limit }
+      const list = Array.isArray(res?.data) ? res.data : Array.isArray(res) ? res : [];
       setWards(list);
     } catch (err) {
       console.error("Failed to fetch wards:", err);
@@ -321,7 +319,7 @@ export const CreateComplaintScreen = ({ navigation }) => {
   const wardItems = wards.map((w) => ({
     ...w,
     value: w._id ?? w.ward_id,
-    label: w.ward_name ?? w.name ?? w._id,
+    label: w.label ?? w.ward_name ?? w.name ?? w._id,
   }));
 
   const selectedType = COMPLAINT_TYPES.find((t) => t.value === form.complaint_type);
@@ -415,7 +413,7 @@ export const CreateComplaintScreen = ({ navigation }) => {
           <FormCard>
             <SectionHeader icon="map-marker-radius" title="Where is it?" subtitle="Ward, address & GPS coordinates" />
 
-            {/* <Dropdown
+            <Dropdown
               label="Ward"
               placeholder={wardsLoading ? "Loading wards…" : "Select your ward"}
               value={form.ward_id}
@@ -454,14 +452,14 @@ export const CreateComplaintScreen = ({ navigation }) => {
                   {isSelected && <Icon name="check" size={17} color={COLORS.primary} />}
                 </TouchableOpacity>
               )}
-            /> */}
-            <TextField
+            />
+            {/* <TextField
               label="Ward ID"
               placeholder="e.g. Ward 1, Zone A"
               value={form.ward_id}
               onChangeText={(v) => updateField("ward_id", v)}
               icon="home-map-marker"
-            />
+            /> */}
 
             <TextField
               label="Address / Landmark"

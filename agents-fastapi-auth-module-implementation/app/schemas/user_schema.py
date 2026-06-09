@@ -35,7 +35,7 @@ class CreateAdminSchema(BaseModel):
             "email": "admin@gmail.com",
             "mobile_number": "9876543210",
             "role": "DISTRICT_ADMIN",
-            "district": "Chennai",
+            "district": "6a156a1258884d22663b2a06",
             "address": "Chennai"
         }
 
