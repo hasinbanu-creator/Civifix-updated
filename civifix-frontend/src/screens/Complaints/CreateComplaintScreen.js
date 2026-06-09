@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useContext, useRef } from "react";
 import {
-  Alert,
   KeyboardAvoidingView,
   Platform,
   ScrollView,
@@ -14,44 +13,44 @@ import {
   StatusBar,
   Animated,
   Dimensions,
+  TextInput,
 } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import * as Location from "expo-location";
+import { Alert } from "react-native";
 import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
-import { TextField } from "../../components";
 import { COLORS, FONT_SIZES, SPACING, SHADOWS } from "../../constants/theme";
 import authService from "../../services/authService";
 import { AuthContext } from "../../context/AuthContext";
 import { getErrorMessage } from "../../services/api";
 
-const { width: SCREEN_WIDTH, height: SCREEN_HEIGHT } = Dimensions.get("window");
+const { height: SCREEN_HEIGHT } = Dimensions.get("window");
 
 // ─── DESIGN TOKENS ────────────────────────────────────────────────────────────
-const PRIMARY        = "#2563EB";
-const PRIMARY_DARK   = "#1D4ED8";
-const PRIMARY_LIGHT  = "#EFF6FF";
-const ERROR          = "#DC2626";
-const GRAY_50        = "#F9FAFB";
-const GRAY_100       = "#F3F4F6";
-const GRAY_200       = "#E5E7EB";
-const GRAY_400       = "#9CA3AF";
-const GRAY_600       = "#4B5563";
-const GRAY_800       = "#1F2937";
+const PRIMARY       = "#2563EB";
+const PRIMARY_DARK  = "#1D4ED8";
+const PRIMARY_LIGHT = "#EFF6FF";
+const ERROR         = "#DC2626";
+const GRAY_50       = "#F9FAFB";
+const GRAY_100      = "#F3F4F6";
+const GRAY_200      = "#E5E7EB";
+const GRAY_400      = "#9CA3AF";
+const GRAY_600      = "#4B5563";
+const GRAY_800      = "#1F2937";
 
-// ─── CONSTANTS ────────────────────────────────────────────────────────────────
 const DEFAULT_DISTRICT_ID = "6a156a1258884d22663b2a06";
 
 const COMPLAINT_TYPES = [
-  { value: "GARBAGE",      label: "Garbage / Waste",      icon: "trash-can-outline",    color: "#0891B2" },
-  { value: "ROAD_DAMAGE",  label: "Road Damage",          icon: "road-variant",          color: "#DC2626" },
-  { value: "POTHOLE",      label: "Pothole",              icon: "road-variant",          color: "#DC2626" },
-  { value: "STREETLIGHT",  label: "Street Light",         icon: "lightbulb-on-outline",  color: "#D97706" },
-  { value: "WATER_SUPPLY", label: "Water Supply",         icon: "water-outline",         color: "#0052CC" },
-  { value: "DRAINAGE",     label: "Drainage Issue",       icon: "pipe-disconnected",     color: "#0891B2" },
-  { value: "SANITATION",   label: "Sanitation",           icon: "broom",                 color: "#059669" },
-  { value: "TREE_CUTTING", label: "Tree / Fallen Branch", icon: "tree-outline",          color: "#059669" },
-  { value: "CONSTRUCTION", label: "Construction Block",   icon: "hammer-wrench",         color: "#D97706" },
-  { value: "OTHER",        label: "Other Issue",          icon: "alert-circle-outline",  color: "#6B7280" },
+  { value: "GARBAGE",      label: "Garbage / Waste",      icon: "trash-can-outline",   color: "#0891B2" },
+  { value: "ROAD_DAMAGE",  label: "Road Damage",          icon: "road-variant",         color: "#DC2626" },
+  { value: "POTHOLE",      label: "Pothole",              icon: "road-variant",         color: "#DC2626" },
+  { value: "STREETLIGHT",  label: "Street Light",         icon: "lightbulb-on-outline", color: "#D97706" },
+  { value: "WATER_SUPPLY", label: "Water Supply",         icon: "water-outline",        color: "#0052CC" },
+  { value: "DRAINAGE",     label: "Drainage Issue",       icon: "pipe-disconnected",    color: "#0891B2" },
+  { value: "SANITATION",   label: "Sanitation",           icon: "broom",                color: "#059669" },
+  { value: "TREE_CUTTING", label: "Tree / Fallen Branch", icon: "tree-outline",         color: "#059669" },
+  { value: "CONSTRUCTION", label: "Construction Block",   icon: "hammer-wrench",        color: "#D97706" },
+  { value: "OTHER",        label: "Other Issue",          icon: "alert-circle-outline", color: "#6B7280" },
 ];
 
 const PRIORITIES = [
@@ -60,17 +59,62 @@ const PRIORITIES = [
   { value: "HIGH",   label: "High",   color: "#DC2626", bg: "#FFE4E6", icon: "arrow-up-circle-outline"   },
 ];
 
+// ─── REUSABLE FIELD ───────────────────────────────────────────────────────────
+// Single consistent input pattern used everywhere — icon + TextInput, no nesting tricks
+const Field = ({ label, icon, error, children, style }) => (
+  <View style={[styles.fieldGroup, style]}>
+    {label && <Text style={styles.fieldLabel}>{label}</Text>}
+    {children}
+    {error ? <Text style={styles.errorText}>{error}</Text> : null}
+  </View>
+);
+
+const InputField = ({
+  label, icon, placeholder, value, onChangeText,
+  multiline, numberOfLines, keyboardType, error, editable = true, rightElement, style,
+}) => (
+  <Field label={label} error={error} style={style}>
+    <View style={[
+      styles.inputWrap,
+      multiline && styles.inputWrapMulti,
+      error      && styles.inputError,
+      !editable  && styles.inputDisabled,
+    ]}>
+      <Icon
+        name={icon}
+        size={16}
+        color={value ? PRIMARY : GRAY_400}
+        style={multiline ? { marginTop: 2 } : undefined}
+      />
+      <TextInput
+        style={[styles.textInput, multiline && styles.textInputMulti]}
+        placeholder={placeholder}
+        placeholderTextColor={GRAY_400}
+        value={value}
+        onChangeText={onChangeText}
+        multiline={multiline}
+        numberOfLines={numberOfLines}
+        keyboardType={keyboardType}
+        editable={editable}
+        textAlignVertical={multiline ? "top" : "center"}
+        autoCorrect={false}
+      />
+      {rightElement}
+    </View>
+  </Field>
+);
+
 // ─── SUCCESS MODAL ────────────────────────────────────────────────────────────
 const SuccessModal = ({ visible, complaint, onView, onDone }) => {
-  const scaleAnim  = useRef(new Animated.Value(0.7)).current;
+  const scaleAnim   = useRef(new Animated.Value(0.7)).current;
   const opacityAnim = useRef(new Animated.Value(0)).current;
-  const checkAnim  = useRef(new Animated.Value(0)).current;
+  const checkAnim   = useRef(new Animated.Value(0)).current;
 
   useEffect(() => {
     if (visible) {
       Animated.parallel([
-        Animated.spring(scaleAnim,   { toValue: 1, tension: 65, friction: 8,  useNativeDriver: true }),
-        Animated.timing(opacityAnim, { toValue: 1, duration: 220,              useNativeDriver: true }),
+        Animated.spring(scaleAnim,   { toValue: 1, tension: 65, friction: 8, useNativeDriver: true }),
+        Animated.timing(opacityAnim, { toValue: 1, duration: 220,             useNativeDriver: true }),
       ]).start(() => {
         Animated.spring(checkAnim, { toValue: 1, tension: 80, friction: 6, useNativeDriver: true }).start();
       });
@@ -88,43 +132,39 @@ const SuccessModal = ({ visible, complaint, onView, onDone }) => {
       <Animated.View style={[ss.overlay, { opacity: opacityAnim }]}>
         <Animated.View style={[ss.sheet, { transform: [{ scale: scaleAnim }] }]}>
 
-          {/* ── Animated check circle ── */}
           <View style={ss.checkCircleOuter}>
             <View style={ss.checkCircleInner}>
               <Animated.View style={{ transform: [{ scale: checkAnim }] }}>
                 <Icon name="check-bold" size={38} color="#fff" />
               </Animated.View>
             </View>
-            {/* pulse ring */}
             <View style={ss.pulseRing} />
           </View>
 
           <Text style={ss.successTitle}>Complaint Submitted!</Text>
           <Text style={ss.successSub}>
-            Your complaint has been registered successfully. Our team will review and resolve it within{" "}
+            Your complaint has been registered. Our team will review and resolve it within{" "}
             <Text style={ss.successHighlight}>48 hours</Text>.
           </Text>
 
-          {/* ── ID pill ── */}
           <View style={ss.idPill}>
             <Icon name="identifier" size={14} color={PRIMARY} />
             <Text style={ss.idText}>{complaintId}</Text>
           </View>
 
-          {/* ── Timeline strip ── */}
           <View style={ss.timelineStrip}>
             {[
-              { icon: "check-circle",           label: "Submitted",  color: "#059669", done: true  },
-              { icon: "account-search-outline", label: "Review",     color: PRIMARY,   done: false },
-              { icon: "progress-wrench",        label: "In Progress",color: "#D97706", done: false },
-              { icon: "flag-checkered",         label: "Resolved",   color: "#059669", done: false },
+              { icon: "check-circle",           label: "Submitted",   color: "#059669", done: true  },
+              { icon: "account-search-outline", label: "Review",      color: PRIMARY,   done: false },
+              { icon: "progress-wrench",        label: "In Progress", color: "#D97706", done: false },
+              { icon: "flag-checkered",         label: "Resolved",    color: "#059669", done: false },
             ].map((step, i, arr) => (
               <React.Fragment key={step.label}>
                 <View style={ss.timelineStep}>
-                  <View style={[ss.timelineStepDot, step.done ? { backgroundColor: step.color } : ss.timelineStepDotInactive]}>
+                  <View style={[ss.timelineDot, step.done ? { backgroundColor: step.color } : ss.timelineDotInactive]}>
                     <Icon name={step.icon} size={13} color={step.done ? "#fff" : GRAY_400} />
                   </View>
-                  <Text style={[ss.timelineStepLabel, step.done && { color: step.color, fontWeight: "700" }]}>
+                  <Text style={[ss.timelineLabel, step.done && { color: step.color, fontWeight: "700" }]}>
                     {step.label}
                   </Text>
                 </View>
@@ -135,13 +175,13 @@ const SuccessModal = ({ visible, complaint, onView, onDone }) => {
             ))}
           </View>
 
-          {/* ── 48hr badge ── */}
           <View style={ss.timeBadge}>
             <Icon name="clock-fast" size={16} color="#D97706" />
-            <Text style={ss.timeBadgeText}>Expected resolution within <Text style={{ fontWeight: "800" }}>48 hours</Text></Text>
+            <Text style={ss.timeBadgeText}>
+              Expected resolution within <Text style={{ fontWeight: "800" }}>48 hours</Text>
+            </Text>
           </View>
 
-          {/* ── Actions ── */}
           <View style={ss.actionRow}>
             <TouchableOpacity style={ss.btnSecondary} onPress={onDone} activeOpacity={0.8}>
               <Text style={ss.btnSecondaryText}>Done</Text>
@@ -164,15 +204,14 @@ const Dropdown = ({ label, placeholder, value, items, onSelect, error, renderIte
   const selected = items.find((i) => (i.value ?? i._id ?? i) === value);
 
   return (
-    <View style={styles.fieldGroup}>
-      <Text style={styles.fieldLabel}>{label}</Text>
+    <Field label={label} error={error}>
       <TouchableOpacity
-        onPress={() => setOpen(true)}
+        onPress={() => !dropLoading && setOpen(true)}
         activeOpacity={0.78}
         style={[styles.inputWrap, error && styles.inputError, open && styles.inputFocused]}
       >
         {dropLoading ? (
-          <ActivityIndicator size="small" color={PRIMARY} style={{ marginRight: 8 }} />
+          <ActivityIndicator size="small" color={PRIMARY} />
         ) : selected?.icon ? (
           <View style={[styles.dropIconWrap, { backgroundColor: (selected.color || PRIMARY) + "18" }]}>
             <Icon name={selected.icon} size={15} color={selected.color ?? PRIMARY} />
@@ -182,12 +221,13 @@ const Dropdown = ({ label, placeholder, value, items, onSelect, error, renderIte
             <Icon name="format-list-bulleted" size={15} color={GRAY_400} />
           </View>
         )}
-        <Text style={[styles.dropText, !selected && styles.dropPlaceholder]}>
-          {selected ? (selected.label ?? selected.ward_name ?? selected) : placeholder}
+        <Text style={[styles.textInput, !selected && { color: GRAY_400 }]}>
+          {dropLoading
+            ? "Loading…"
+            : selected ? (selected.label ?? selected.ward_name) : placeholder}
         </Text>
         <Icon name={open ? "chevron-up" : "chevron-down"} size={18} color={GRAY_400} />
       </TouchableOpacity>
-      {!!error && <Text style={styles.errorText}>{error}</Text>}
 
       <Modal visible={open} transparent animationType="fade" onRequestClose={() => setOpen(false)}>
         <TouchableOpacity style={styles.modalOverlay} activeOpacity={1} onPress={() => setOpen(false)}>
@@ -230,7 +270,7 @@ const Dropdown = ({ label, placeholder, value, items, onSelect, error, renderIte
           </View>
         </TouchableOpacity>
       </Modal>
-    </View>
+    </Field>
   );
 };
 
@@ -240,21 +280,18 @@ const SectionHeader = ({ icon, title, subtitle }) => (
     <View style={styles.sectionIconWrap}>
       <Icon name={icon} size={16} color={PRIMARY} />
     </View>
-    <View>
+    <View style={{ flex: 1 }}>
       <Text style={styles.sectionTitle}>{title}</Text>
       {!!subtitle && <Text style={styles.sectionSub}>{subtitle}</Text>}
     </View>
   </View>
 );
 
-const FormCard = ({ children }) => (
-  <View style={styles.card}>{children}</View>
-);
+const FormCard = ({ children }) => <View style={styles.card}>{children}</View>;
 
 // ─── PRIORITY SELECTOR ────────────────────────────────────────────────────────
 const PrioritySelector = ({ value, onChange }) => (
-  <View>
-    <Text style={styles.fieldLabel}>Priority</Text>
+  <Field label="Priority">
     <View style={styles.priorityRow}>
       {PRIORITIES.map((p) => {
         const sel = value === p.value;
@@ -271,25 +308,7 @@ const PrioritySelector = ({ value, onChange }) => (
         );
       })}
     </View>
-  </View>
-);
-
-// ─── GPS BUTTON ───────────────────────────────────────────────────────────────
-const GpsButton = ({ onLocation, loading }) => (
-  <TouchableOpacity
-    style={[styles.gpsBtn, loading && styles.gpsBtnLoading]}
-    onPress={onLocation}
-    disabled={loading}
-    activeOpacity={0.8}
-  >
-    {loading
-      ? <ActivityIndicator size="small" color={PRIMARY} />
-      : <Icon name="crosshairs-gps" size={18} color={PRIMARY} />
-    }
-    <Text style={styles.gpsBtnText}>
-      {loading ? "Getting location…" : "Use my current location"}
-    </Text>
-  </TouchableOpacity>
+  </Field>
 );
 
 // ─── MAIN SCREEN ──────────────────────────────────────────────────────────────
@@ -297,23 +316,16 @@ export const CreateComplaintScreen = ({ navigation }) => {
   const { user } = useContext(AuthContext);
 
   const [form, setForm] = useState({
-    ward_id:        "",
-    complaint_type: "",
-    description:    "",
-    latitude:       "",
-    longitude:      "",
-    address:        "",
-    citizen_note:   "",
-    priority:       "MEDIUM",
+    ward_id: "", complaint_type: "", description: "",
+    latitude: "", longitude: "", address: "", citizen_note: "", priority: "MEDIUM",
   });
-  const [errors, setErrors]           = useState({});
-  const [loading, setLoading]         = useState(false);
-  const [serverError, setServerError] = useState("");
-  const [wards, setWards]             = useState([]);
+  const [errors, setErrors]             = useState({});
+  const [loading, setLoading]           = useState(false);
+  const [serverError, setServerError]   = useState("");
+  const [wards, setWards]               = useState([]);
   const [wardsLoading, setWardsLoading] = useState(true);
-  const [gpsLoading, setGpsLoading]   = useState(false);
-  const [gpsGranted, setGpsGranted]   = useState(null); // null | true | false
-  const [successData, setSuccessData] = useState(null); // null | complaint object
+  const [gpsLoading, setGpsLoading]     = useState(false);
+  const [successData, setSuccessData]   = useState(null);
 
   useEffect(() => { fetchWards(); }, []);
 
@@ -328,60 +340,48 @@ export const CreateComplaintScreen = ({ navigation }) => {
     finally { setWardsLoading(false); }
   };
 
-  // ── GPS ──
-  const handleGetLocation = async () => {
-    setGpsLoading(true);
-    try {
-      const { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setGpsGranted(false);
-        Alert.alert(
-          "Location Permission Denied",
-          "Please enable location access in your device settings to use this feature.",
-          [{ text: "OK" }]
-        );
-        return;
-      }
-      setGpsGranted(true);
-      const loc = await Location.getCurrentPositionAsync({
-        accuracy: Location.Accuracy.High,
-      });
-      const { latitude, longitude } = loc.coords;
-      updateField("latitude",  String(latitude.toFixed(6)));
-      updateField("longitude", String(longitude.toFixed(6)));
-
-      // Reverse geocode for address autofill
-      try {
-        const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
-        if (place) {
-          const parts = [place.name, place.street, place.district, place.city, place.region]
-            .filter(Boolean);
-          updateField("address", parts.join(", "));
-        }
-      } catch { /* address autofill is optional */ }
-
-    } catch (err) {
-      Alert.alert("Location Error", "Could not get your location. Please try again or enter manually.");
-    } finally {
-      setGpsLoading(false);
-    }
-  };
-
   const updateField = (field, value) => {
     setForm((prev) => ({ ...prev, [field]: value }));
     if (errors[field]) setErrors((prev) => ({ ...prev, [field]: "" }));
   };
 
+  // ── GPS — no manual fallback ──
+  const handleGetLocation = async () => {
+    setGpsLoading(true);
+    try {
+      const { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        Alert.alert(
+          "Location Permission Denied",
+          "Please enable location access in Settings → Privacy → Location Services to use this feature.",
+          [{ text: "OK" }]
+        );
+        return;
+      }
+      const loc = await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.High });
+      const { latitude, longitude } = loc.coords;
+      updateField("latitude",  String(latitude.toFixed(6)));
+      updateField("longitude", String(longitude.toFixed(6)));
+      // Reverse geocode → autofill address
+      try {
+        const [place] = await Location.reverseGeocodeAsync({ latitude, longitude });
+        if (place) {
+          const parts = [place.name, place.street, place.district, place.city, place.region].filter(Boolean);
+          updateField("address", parts.join(", "));
+        }
+      } catch { /* optional */ }
+    } catch {
+      Alert.alert("Location Error", "Could not get your location. Please try again.");
+    } finally {
+      setGpsLoading(false);
+    }
+  };
+
   const validate = () => {
     const next = {};
-    if (!form.ward_id)        next.ward_id        = "Please select a ward";
-    if (!form.complaint_type) next.complaint_type = "Please select a complaint type";
-    if (form.description.trim().length < 10)
-                              next.description    = "Description must be at least 10 characters";
-    const lat = Number(form.latitude);
-    const lng = Number(form.longitude);
-    if (form.latitude  && (isNaN(lat) || lat < -90  || lat > 90))   next.latitude  = "Must be between -90 and 90";
-    if (form.longitude && (isNaN(lng) || lng < -180 || lng > 180)) next.longitude = "Must be between -180 and 180";
+    if (!form.ward_id)                          next.ward_id        = "Please select a ward";
+    if (!form.complaint_type)                   next.complaint_type = "Please select a complaint type";
+    if (form.description.trim().length < 10)    next.description    = "Description must be at least 10 characters";
     setErrors(next);
     return Object.keys(next).length === 0;
   };
@@ -392,11 +392,8 @@ export const CreateComplaintScreen = ({ navigation }) => {
     setServerError("");
     try {
       const payload = {
-        ward_id:        form.ward_id,
-        complaint_type: form.complaint_type,
-        description:    form.description.trim(),
-        image_urls:     [],
-        priority:       form.priority,
+        ward_id: form.ward_id, complaint_type: form.complaint_type,
+        description: form.description.trim(), image_urls: [], priority: form.priority,
         ...(form.latitude  && { latitude:  Number(form.latitude)  }),
         ...(form.longitude && { longitude: Number(form.longitude) }),
         ...(form.address.trim()      && { address:      form.address.trim()      }),
@@ -405,15 +402,14 @@ export const CreateComplaintScreen = ({ navigation }) => {
       const created = await authService.createComplaint(payload);
       setSuccessData(created);
     } catch (err) {
-      setServerError(getErrorMessage(err, "Unable to submit complaint. Please try again."));
+      setServerError(getErrorMessage(err, "Unable to submit. Please try again."));
     } finally {
       setLoading(false);
     }
   };
 
   const wardItems = wards.map((w) => ({
-    ...w,
-    value: w._id ?? w.ward_id,
+    ...w, value: w._id ?? w.ward_id,
     label: w.label ?? w.ward_name ?? w.name ?? w._id,
   }));
   const selectedType = COMPLAINT_TYPES.find((t) => t.value === form.complaint_type);
@@ -443,7 +439,6 @@ export const CreateComplaintScreen = ({ navigation }) => {
           showsVerticalScrollIndicator={false}
           contentContainerStyle={styles.scroll}
         >
-
           {/* ── Section 1: What's the issue ── */}
           <FormCard>
             <SectionHeader icon="alert-circle-outline" title="What's the issue?" subtitle="Type, description and priority" />
@@ -457,30 +452,23 @@ export const CreateComplaintScreen = ({ navigation }) => {
               error={errors.complaint_type}
             />
 
-            <View style={styles.fieldGroup}>
-              <Text style={styles.fieldLabel}>Description</Text>
-              <View style={[styles.inputWrap, styles.inputWrapMulti, errors.description && styles.inputError]}>
-                <Icon name="text" size={16} color={form.description ? PRIMARY : GRAY_400} style={{ marginTop: 2 }} />
-                <TextField
-                  placeholder="Describe the issue clearly (min 10 characters)"
-                  value={form.description}
-                  onChangeText={(v) => updateField("description", v)}
-                  multiline
-                  numberOfLines={4}
-                  style={styles.textAreaInner}
-                  hideLabel
-                />
-              </View>
-              {errors.description && <Text style={styles.errorText}>{errors.description}</Text>}
-            </View>
+            <InputField
+              label="Description"
+              icon="text-box-outline"
+              placeholder="Describe the issue clearly (min 10 characters)"
+              value={form.description}
+              onChangeText={(v) => updateField("description", v)}
+              multiline
+              numberOfLines={4}
+              error={errors.description}
+            />
 
-            <View style={{ height: 12 }} />
             <PrioritySelector value={form.priority} onChange={(v) => updateField("priority", v)} />
           </FormCard>
 
           {/* ── Section 2: Where is it ── */}
           <FormCard>
-            <SectionHeader icon="map-marker-radius" title="Where is it?" subtitle="Ward, address & GPS coordinates" />
+            <SectionHeader icon="map-marker-radius" title="Where is it?" subtitle="Ward, address & GPS location" />
 
             <Dropdown
               label="Ward"
@@ -509,105 +497,74 @@ export const CreateComplaintScreen = ({ navigation }) => {
             />
 
             {/* GPS button */}
-            <GpsButton onLocation={handleGetLocation} loading={gpsLoading} />
+            <TouchableOpacity
+              style={[styles.gpsBtn, gpsLoading && styles.gpsBtnLoading]}
+              onPress={handleGetLocation}
+              disabled={gpsLoading}
+              activeOpacity={0.8}
+            >
+              {gpsLoading
+                ? <ActivityIndicator size="small" color={PRIMARY} />
+                : <Icon name="crosshairs-gps" size={18} color={PRIMARY} />
+              }
+              <Text style={styles.gpsBtnText}>
+                {gpsLoading ? "Getting location…" : "Use my current location"}
+              </Text>
+            </TouchableOpacity>
 
-            {/* Lat / Lng filled indicator */}
+            {/* GPS filled pill — shows coords, tap × to clear */}
             {(form.latitude || form.longitude) && (
               <View style={styles.gpsFilled}>
                 <Icon name="map-marker-check-outline" size={16} color="#059669" />
-                <Text style={styles.gpsFilledText}>
+                <Text style={styles.gpsFilledText} numberOfLines={1}>
                   {form.latitude}, {form.longitude}
                 </Text>
-                <TouchableOpacity onPress={() => { updateField("latitude", ""); updateField("longitude", ""); }}>
-                  <Icon name="close-circle-outline" size={16} color={GRAY_400} />
+                <TouchableOpacity onPress={() => {
+                  updateField("latitude", "");
+                  updateField("longitude", "");
+                }}>
+                  <Icon name="close-circle-outline" size={18} color={GRAY_400} />
                 </TouchableOpacity>
               </View>
             )}
 
-            {/* Manual lat/lng inputs — only show if GPS not used */}
-            {!form.latitude && !form.longitude && (
-              <View style={styles.coordRow}>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.fieldLabel}>Latitude</Text>
-                  <View style={[styles.inputWrap, errors.latitude && styles.inputError]}>
-                    <Icon name="latitude" size={15} color={GRAY_400} />
-                    <TextField
-                      placeholder="13.0827"
-                      value={form.latitude}
-                      onChangeText={(v) => updateField("latitude", v)}
-                      keyboardType="decimal-pad"
-                      hideLabel
-                      style={styles.coordInput}
-                    />
-                  </View>
-                  {errors.latitude && <Text style={styles.errorText}>{errors.latitude}</Text>}
-                </View>
-                <View style={{ flex: 1 }}>
-                  <Text style={styles.fieldLabel}>Longitude</Text>
-                  <View style={[styles.inputWrap, errors.longitude && styles.inputError]}>
-                    <Icon name="longitude" size={15} color={GRAY_400} />
-                    <TextField
-                      placeholder="80.2707"
-                      value={form.longitude}
-                      onChangeText={(v) => updateField("longitude", v)}
-                      keyboardType="decimal-pad"
-                      hideLabel
-                      style={styles.coordInput}
-                    />
-                  </View>
-                  {errors.longitude && <Text style={styles.errorText}>{errors.longitude}</Text>}
-                </View>
-              </View>
-            )}
-
-            <View style={styles.fieldGroup}>
-              <Text style={styles.fieldLabel}>Address / Landmark</Text>
-              <View style={[styles.inputWrap]}>
-                <Icon name="home-map-marker" size={16} color={form.address ? PRIMARY : GRAY_400} />
-                <TextField
-                  placeholder="e.g. Near post office, Main Road"
-                  value={form.address}
-                  onChangeText={(v) => updateField("address", v)}
-                  hideLabel
-                  style={styles.inputInner}
-                />
-              </View>
-            </View>
+            {/* Address — autofilled by GPS, still editable */}
+            <InputField
+              label="Address / Landmark"
+              icon="home-map-marker"
+              placeholder="e.g. Near post office, Main Road"
+              value={form.address}
+              onChangeText={(v) => updateField("address", v)}
+            />
           </FormCard>
 
           {/* ── Section 3: Additional info ── */}
           <FormCard>
             <SectionHeader icon="note-text-outline" title="Additional info" subtitle="Optional — any extra context" />
-            <View style={styles.fieldGroup}>
-              <Text style={styles.fieldLabel}>Citizen Note</Text>
-              <View style={[styles.inputWrap]}>
-                <Icon name="note-edit-outline" size={16} color={form.citizen_note ? PRIMARY : GRAY_400} />
-                <TextField
-                  placeholder="Anything else we should know?"
-                  value={form.citizen_note}
-                  onChangeText={(v) => updateField("citizen_note", v)}
-                  multiline
-                  numberOfLines={2}
-                  hideLabel
-                  style={styles.inputInner}
-                />
-              </View>
-            </View>
+            <InputField
+              label="Citizen Note"
+              icon="note-edit-outline"
+              placeholder="Anything else we should know?"
+              value={form.citizen_note}
+              onChangeText={(v) => updateField("citizen_note", v)}
+              multiline
+              numberOfLines={3}
+            />
           </FormCard>
 
           {/* ── Summary preview ── */}
           {(form.complaint_type || form.ward_id) && (
             <View style={styles.summaryCard}>
               {selectedType && (
-                <View style={[styles.summaryIcon, { backgroundColor: selectedType.color + "18" }]}>
+                <View style={[styles.summaryIconWrap, { backgroundColor: selectedType.color + "18" }]}>
                   <Icon name={selectedType.icon} size={20} color={selectedType.color} />
                 </View>
               )}
               <View style={{ flex: 1 }}>
                 <Text style={styles.summaryReadyLabel}>Ready to submit</Text>
-                <Text style={styles.summaryTitle}>
+                <Text style={styles.summaryTitle} numberOfLines={1}>
                   {selectedType?.label ?? "—"}
-                  {form.ward_id ? ` · ${wardItems.find((w) => w.value === form.ward_id)?.label ?? "Ward"}` : ""}
+                  {form.ward_id ? `  ·  ${wardItems.find((w) => w.value === form.ward_id)?.label ?? "Ward"}` : ""}
                 </Text>
               </View>
               {selectedPri && (
@@ -628,10 +585,8 @@ export const CreateComplaintScreen = ({ navigation }) => {
 
           {/* ── Submit ── */}
           <TouchableOpacity
-            onPress={submit}
-            disabled={loading}
-            activeOpacity={0.85}
-            style={styles.submitWrap}
+            onPress={submit} disabled={loading}
+            activeOpacity={0.85} style={styles.submitWrap}
           >
             <LinearGradient
               colors={loading ? [GRAY_400, GRAY_400] : [PRIMARY, PRIMARY_DARK]}
@@ -646,22 +601,15 @@ export const CreateComplaintScreen = ({ navigation }) => {
             </LinearGradient>
           </TouchableOpacity>
 
-          <View style={{ height: 32 }} />
+          <View style={{ height: 40 }} />
         </ScrollView>
       </KeyboardAvoidingView>
 
-      {/* ── Success modal ── */}
       <SuccessModal
         visible={!!successData}
         complaint={successData}
-        onView={() => {
-          setSuccessData(null);
-          navigation.replace("ComplaintDetail", { complaint: successData });
-        }}
-        onDone={() => {
-          setSuccessData(null);
-          navigation.goBack();
-        }}
+        onView={() => { setSuccessData(null); navigation.replace("ComplaintDetail", { complaint: successData }); }}
+        onDone={() => { setSuccessData(null); navigation.goBack(); }}
       />
     </View>
   );
@@ -671,10 +619,8 @@ export const CreateComplaintScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
   flex: { flex: 1, backgroundColor: GRAY_50 },
 
-  /* header */
   headerBar: {
-    backgroundColor: PRIMARY,
-    flexDirection: "row", alignItems: "center",
+    backgroundColor: PRIMARY, flexDirection: "row", alignItems: "center",
     paddingTop: Platform.OS === "ios" ? 52 : 16,
     paddingBottom: 16, paddingHorizontal: 16, gap: 12,
   },
@@ -684,8 +630,8 @@ const styles = StyleSheet.create({
     alignItems: "center", justifyContent: "center",
   },
   headerCenter: { flex: 1 },
-  headerTitle: { color: "#fff", fontSize: 18, fontWeight: "800", letterSpacing: -0.3 },
-  headerSub:   { color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 1 },
+  headerTitle:  { color: "#fff", fontSize: 18, fontWeight: "800", letterSpacing: -0.3 },
+  headerSub:    { color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 1 },
   headerIconWrap: {
     width: 36, height: 36, borderRadius: 10,
     backgroundColor: "rgba(255,255,255,0.18)",
@@ -694,50 +640,63 @@ const styles = StyleSheet.create({
 
   scroll: { paddingHorizontal: 16, paddingTop: 16 },
 
-  /* card */
   card: {
-    backgroundColor: "#fff", borderRadius: 18, padding: 18,
-    marginBottom: 12,
+    backgroundColor: "#fff", borderRadius: 18, padding: 18, marginBottom: 12,
     shadowColor: "#000", shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.06, shadowRadius: 10, elevation: 2,
   },
 
-  /* section header */
-  sectionHeader: { flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 16 },
+  sectionHeader: { flexDirection: "row", alignItems: "center", gap: 10, marginBottom: 18 },
   sectionIconWrap: {
     width: 30, height: 30, borderRadius: 8,
     backgroundColor: PRIMARY_LIGHT, alignItems: "center", justifyContent: "center",
   },
-  sectionTitle: { fontSize: 13, fontWeight: "800", color: GRAY_800, letterSpacing: 0.1 },
+  sectionTitle: { fontSize: 13, fontWeight: "800", color: GRAY_800 },
   sectionSub:   { fontSize: 11, color: GRAY_400, marginTop: 1 },
 
-  /* fields */
-  fieldGroup: { marginBottom: 14 },
+  // ── The one input pattern used everywhere ──
+  fieldGroup: { marginBottom: 16 },
   fieldLabel: {
     fontSize: 11, fontWeight: "700", color: GRAY_600,
-    letterSpacing: 0.6, marginBottom: 6, textTransform: "uppercase",
+    letterSpacing: 0.6, marginBottom: 7, textTransform: "uppercase",
   },
   inputWrap: {
-    flexDirection: "row", alignItems: "center",
-    borderWidth: 1.5, borderColor: GRAY_200, borderRadius: 12,
-    paddingHorizontal: 12, gap: 8, backgroundColor: GRAY_50, minHeight: 48,
+    flexDirection: "row",
+    alignItems: "center",
+    borderWidth: 1.5,
+    borderColor: GRAY_200,
+    borderRadius: 12,
+    paddingHorizontal: 14,
+    paddingVertical: 13,       // uniform vertical padding — no minHeight tricks
+    gap: 10,
+    backgroundColor: GRAY_50,
   },
-  inputWrapMulti: { alignItems: "flex-start", paddingVertical: 10 },
-  inputFocused:   { borderColor: PRIMARY, backgroundColor: PRIMARY_LIGHT },
-  inputError:     { borderColor: ERROR, backgroundColor: "#FEF2F2" },
-  inputInner:     { flex: 1 },
-  textAreaInner:  { flex: 1, minHeight: 72, textAlignVertical: "top" },
-  errorText:      { color: ERROR, fontSize: 11, marginTop: 4, marginLeft: 2 },
+  inputWrapMulti: {
+    alignItems: "flex-start",  // icon top-aligns with text
+    paddingVertical: 12,
+  },
+  inputFocused:  { borderColor: PRIMARY, backgroundColor: PRIMARY_LIGHT },
+  inputError:    { borderColor: ERROR,   backgroundColor: "#FEF2F2"     },
+  inputDisabled: { opacity: 0.55, backgroundColor: GRAY_100             },
+  textInput: {
+    flex: 1,
+    fontSize: 14,
+    color: GRAY_800,
+    padding: 0,             // remove default TextInput padding — spacing comes from inputWrap
+    margin: 0,
+    fontFamily: Platform.OS === "ios" ? "System" : "sans-serif",
+  },
+  textInputMulti: {
+    minHeight: 80,
+    textAlignVertical: "top",
+  },
+  errorText: { color: ERROR, fontSize: 11, marginTop: 5, marginLeft: 2 },
 
-  /* dropdown */
+  // ── Dropdown ──
   dropIconWrap: {
     width: 28, height: 28, borderRadius: 7,
-    alignItems: "center", justifyContent: "center",
-    backgroundColor: GRAY_100,
+    backgroundColor: GRAY_100, alignItems: "center", justifyContent: "center",
   },
-  dropText:        { flex: 1, fontSize: 14, color: GRAY_800, fontWeight: "600" },
-  dropPlaceholder: { color: GRAY_400, fontWeight: "400" },
-
   modalOverlay: { flex: 1, backgroundColor: "rgba(0,0,0,0.4)", justifyContent: "flex-end" },
   dropSheet: {
     backgroundColor: "#fff", borderTopLeftRadius: 24, borderTopRightRadius: 24,
@@ -752,11 +711,8 @@ const styles = StyleSheet.create({
     fontSize: 15, fontWeight: "800", color: GRAY_800,
     paddingHorizontal: 20, marginBottom: 8,
   },
-  dropSep:  { height: 1, backgroundColor: GRAY_100, marginHorizontal: 16 },
-  dropItem: {
-    flexDirection: "row", alignItems: "center",
-    paddingHorizontal: 20, paddingVertical: 14, gap: 12,
-  },
+  dropSep:           { height: 1, backgroundColor: GRAY_100, marginHorizontal: 16 },
+  dropItem:          { flexDirection: "row", alignItems: "center", paddingHorizontal: 20, paddingVertical: 14, gap: 12 },
   dropItemActive:    { backgroundColor: PRIMARY_LIGHT },
   dropItemIcon:      { width: 34, height: 34, borderRadius: 9, alignItems: "center", justifyContent: "center" },
   dropItemText:      { flex: 1, fontSize: 14, color: GRAY_800, fontWeight: "500" },
@@ -765,64 +721,55 @@ const styles = StyleSheet.create({
   dropEmpty:         { alignItems: "center", padding: 28, gap: 8 },
   dropEmptyText:     { color: GRAY_400, fontSize: 13 },
 
-  /* priority */
+  // ── Priority ──
   priorityRow: { flexDirection: "row", gap: 10 },
   priorityBtn: {
-    flex: 1, borderRadius: 12, paddingVertical: 11,
-    alignItems: "center", justifyContent: "center", gap: 4,
+    flex: 1, borderRadius: 12, paddingVertical: 12,
+    alignItems: "center", justifyContent: "center", gap: 5,
     backgroundColor: GRAY_50, borderWidth: 1.5, borderColor: GRAY_200,
   },
   priorityLabel: { fontSize: 12, fontWeight: "700", color: GRAY_400 },
 
-  /* GPS */
+  // ── GPS ──
   gpsBtn: {
-    flexDirection: "row", alignItems: "center", gap: 8,
+    flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 8,
     borderWidth: 1.5, borderColor: PRIMARY, borderRadius: 12,
-    paddingVertical: 11, paddingHorizontal: 14,
+    paddingVertical: 12, paddingHorizontal: 14,
     backgroundColor: PRIMARY_LIGHT, marginBottom: 12,
-    justifyContent: "center",
   },
   gpsBtnLoading: { opacity: 0.7 },
-  gpsBtnText: { color: PRIMARY, fontSize: 13, fontWeight: "700" },
-
+  gpsBtnText:    { color: PRIMARY, fontSize: 13, fontWeight: "700" },
   gpsFilled: {
     flexDirection: "row", alignItems: "center", gap: 8,
     backgroundColor: "#ECFDF5", borderRadius: 10,
     paddingVertical: 10, paddingHorizontal: 12,
-    borderWidth: 1, borderColor: "#A7F3D0",
-    marginBottom: 12,
+    borderWidth: 1, borderColor: "#A7F3D0", marginBottom: 14,
   },
   gpsFilledText: { flex: 1, color: "#065F46", fontSize: 12, fontWeight: "600" },
 
-  coordRow: { flexDirection: "row", gap: 10, marginBottom: 14 },
-  coordInput: { flex: 1 },
-
-  /* summary */
+  // ── Summary ──
   summaryCard: {
     flexDirection: "row", alignItems: "center",
     backgroundColor: PRIMARY_LIGHT, borderRadius: 14,
     borderWidth: 1, borderColor: "#BFDBFE",
     padding: 14, marginBottom: 12, gap: 12,
   },
-  summaryIcon:        { width: 40, height: 40, borderRadius: 10, alignItems: "center", justifyContent: "center" },
-  summaryReadyLabel:  { fontSize: 10, color: GRAY_400, fontWeight: "600", textTransform: "uppercase", letterSpacing: 0.5 },
-  summaryTitle:       { fontSize: 13, color: GRAY_800, fontWeight: "700", marginTop: 2 },
-  summaryPriBadge:    { borderRadius: 20, paddingHorizontal: 10, paddingVertical: 4 },
-  summaryPriText:     { fontSize: 11, fontWeight: "800" },
+  summaryIconWrap:   { width: 40, height: 40, borderRadius: 10, alignItems: "center", justifyContent: "center" },
+  summaryReadyLabel: { fontSize: 10, color: GRAY_400, fontWeight: "600", textTransform: "uppercase", letterSpacing: 0.5 },
+  summaryTitle:      { fontSize: 13, color: GRAY_800, fontWeight: "700", marginTop: 2 },
+  summaryPriBadge:   { borderRadius: 20, paddingHorizontal: 10, paddingVertical: 4 },
+  summaryPriText:    { fontSize: 11, fontWeight: "800" },
 
-  /* server error */
+  // ── Server error ──
   serverErrorBox: {
     flexDirection: "row", alignItems: "center", gap: 8,
     backgroundColor: "#FEF2F2", borderRadius: 12, padding: 14, marginBottom: 12,
   },
   serverErrorText: { color: ERROR, fontSize: 12, flex: 1, fontWeight: "600" },
 
-  /* submit */
+  // ── Submit ──
   submitWrap: { borderRadius: 14, overflow: "hidden" },
-  submitBtn: {
-    paddingVertical: 15, alignItems: "center", justifyContent: "center",
-    flexDirection: "row", gap: 8,
-  },
+  submitBtn:  { paddingVertical: 16, alignItems: "center", justifyContent: "center", flexDirection: "row", gap: 8 },
   submitText: { color: "#fff", fontSize: 15, fontWeight: "900", letterSpacing: 0.5 },
 });
 
@@ -830,92 +777,35 @@ const styles = StyleSheet.create({
 const ss = StyleSheet.create({
   overlay: {
     flex: 1, backgroundColor: "rgba(0,0,0,0.55)",
-    justifyContent: "center", alignItems: "center",
-    paddingHorizontal: 24,
+    justifyContent: "center", alignItems: "center", paddingHorizontal: 24,
   },
   sheet: {
-    backgroundColor: "#fff", borderRadius: 28,
-    padding: 28, width: "100%", alignItems: "center",
+    backgroundColor: "#fff", borderRadius: 28, padding: 28,
+    width: "100%", alignItems: "center",
     shadowColor: "#000", shadowOffset: { width: 0, height: 8 },
     shadowOpacity: 0.18, shadowRadius: 24, elevation: 12,
   },
-
-  /* check circle */
-  checkCircleOuter: { marginBottom: 20, alignItems: "center", justifyContent: "center" },
-  checkCircleInner: {
-    width: 80, height: 80, borderRadius: 40,
-    backgroundColor: "#059669",
-    alignItems: "center", justifyContent: "center",
-    zIndex: 2,
-  },
-  pulseRing: {
-    position: "absolute",
-    width: 100, height: 100, borderRadius: 50,
-    backgroundColor: "#059669",
-    opacity: 0.15,
-  },
-
-  successTitle: {
-    fontSize: 22, fontWeight: "900", color: GRAY_800,
-    marginBottom: 10, letterSpacing: -0.4, textAlign: "center",
-  },
-  successSub: {
-    fontSize: 14, color: GRAY_600, textAlign: "center", lineHeight: 22,
-    marginBottom: 16,
-  },
-  successHighlight: { color: PRIMARY, fontWeight: "800" },
-
-  /* ID pill */
-  idPill: {
-    flexDirection: "row", alignItems: "center", gap: 6,
-    backgroundColor: PRIMARY_LIGHT, borderRadius: 20,
-    paddingHorizontal: 14, paddingVertical: 6,
-    borderWidth: 1, borderColor: "#BFDBFE",
-    marginBottom: 20,
-  },
-  idText: { color: PRIMARY, fontSize: 12, fontWeight: "700" },
-
-  /* timeline strip */
-  timelineStrip: {
-    flexDirection: "row", alignItems: "center",
-    width: "100%", marginBottom: 16,
-  },
-  timelineStep:    { alignItems: "center", gap: 4 },
-  timelineStepDot: {
-    width: 28, height: 28, borderRadius: 14,
-    alignItems: "center", justifyContent: "center",
-  },
-  timelineStepDotInactive: { backgroundColor: GRAY_100 },
-  timelineStepLabel: { fontSize: 9, color: GRAY_400, fontWeight: "600", textAlign: "center" },
-  timelineConnector: {
-    flex: 1, height: 2, backgroundColor: GRAY_200, marginBottom: 16,
-  },
-
-  /* 48hr badge */
-  timeBadge: {
-    flexDirection: "row", alignItems: "center", gap: 8,
-    backgroundColor: "#FFFBEB", borderRadius: 12,
-    paddingVertical: 10, paddingHorizontal: 14,
-    borderWidth: 1, borderColor: "#FDE68A",
-    width: "100%", marginBottom: 24,
-  },
-  timeBadgeText: { color: "#92400E", fontSize: 13 },
-
-  /* action buttons */
-  actionRow: { flexDirection: "row", gap: 12, width: "100%" },
-  btnSecondary: {
-    flex: 1, paddingVertical: 13, borderRadius: 12,
-    borderWidth: 1.5, borderColor: GRAY_200,
-    alignItems: "center", justifyContent: "center",
-  },
-  btnSecondaryText: { color: GRAY_600, fontSize: 14, fontWeight: "700" },
-  btnPrimary: {
-    flex: 2, paddingVertical: 13, borderRadius: 12,
-    backgroundColor: PRIMARY,
-    flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6,
-  },
-  btnPrimaryText: { color: "#fff", fontSize: 14, fontWeight: "800" },
+  checkCircleOuter:   { marginBottom: 20, alignItems: "center", justifyContent: "center" },
+  checkCircleInner:   { width: 80, height: 80, borderRadius: 40, backgroundColor: "#059669", alignItems: "center", justifyContent: "center", zIndex: 2 },
+  pulseRing:          { position: "absolute", width: 100, height: 100, borderRadius: 50, backgroundColor: "#059669", opacity: 0.15 },
+  successTitle:       { fontSize: 22, fontWeight: "900", color: GRAY_800, marginBottom: 10, letterSpacing: -0.4, textAlign: "center" },
+  successSub:         { fontSize: 14, color: GRAY_600, textAlign: "center", lineHeight: 22, marginBottom: 16 },
+  successHighlight:   { color: PRIMARY, fontWeight: "800" },
+  idPill:             { flexDirection: "row", alignItems: "center", gap: 6, backgroundColor: PRIMARY_LIGHT, borderRadius: 20, paddingHorizontal: 14, paddingVertical: 6, borderWidth: 1, borderColor: "#BFDBFE", marginBottom: 20 },
+  idText:             { color: PRIMARY, fontSize: 12, fontWeight: "700" },
+  timelineStrip:      { flexDirection: "row", alignItems: "center", width: "100%", marginBottom: 16 },
+  timelineStep:       { alignItems: "center", gap: 4 },
+  timelineDot:        { width: 28, height: 28, borderRadius: 14, alignItems: "center", justifyContent: "center" },
+  timelineDotInactive:{ backgroundColor: GRAY_100 },
+  timelineLabel:      { fontSize: 9, color: GRAY_400, fontWeight: "600", textAlign: "center" },
+  timelineConnector:  { flex: 1, height: 2, backgroundColor: GRAY_200, marginBottom: 16 },
+  timeBadge:          { flexDirection: "row", alignItems: "center", gap: 8, backgroundColor: "#FFFBEB", borderRadius: 12, paddingVertical: 10, paddingHorizontal: 14, borderWidth: 1, borderColor: "#FDE68A", width: "100%", marginBottom: 24 },
+  timeBadgeText:      { color: "#92400E", fontSize: 13 },
+  actionRow:          { flexDirection: "row", gap: 12, width: "100%" },
+  btnSecondary:       { flex: 1, paddingVertical: 13, borderRadius: 12, borderWidth: 1.5, borderColor: GRAY_200, alignItems: "center", justifyContent: "center" },
+  btnSecondaryText:   { color: GRAY_600, fontSize: 14, fontWeight: "700" },
+  btnPrimary:         { flex: 2, paddingVertical: 13, borderRadius: 12, backgroundColor: PRIMARY, flexDirection: "row", alignItems: "center", justifyContent: "center", gap: 6 },
+  btnPrimaryText:     { color: "#fff", fontSize: 14, fontWeight: "800" },
 });
-
 
 export default CreateComplaintScreen;
