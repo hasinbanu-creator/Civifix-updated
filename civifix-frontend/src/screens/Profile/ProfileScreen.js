@@ -252,10 +252,10 @@ export const ProfileScreen = ({ navigation }) => {
   };
 
   // Derived values
-  const displayName  = user?.name  || meData?.email?.split("@")[0] || "User";
+  const displayName  = user?.name  || meData?.email?.split("@")[0] || "Welcome Back!";
   const displayEmail = meData?.email ?? user?.email ?? "";
   const displayPhone = user?.mobile_number ?? user?.mobile ?? "";
-  const role         = meData?.role ?? user?.role ?? "CITIZEN";
+  const role         = meData?.role ?? user?.role ?? "CITIZEN"
   const district     = meData?.district ?? user?.district ?? "";
   const roleMeta     = ROLE_META[role] ?? ROLE_META.CITIZEN;
 
