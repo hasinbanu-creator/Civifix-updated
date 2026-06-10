@@ -1,37 +1,175 @@
 import React, { useCallback, useEffect, useState } from "react";
 import {
   ActivityIndicator,
+  FlatList,
   RefreshControl,
-  ScrollView,
   Text,
   TouchableOpacity,
   View,
+  StyleSheet,
+  Platform,
+  StatusBar,
 } from "react-native";
-import Icon from "react-native-vector-icons/MaterialCommunityIcons";
-import { LinearGradient } from "expo-linear-gradient";
-import { Button, Card, GradientBackground } from "../../components";
-import { COLORS, FONT_SIZES, GRADIENTS, SPACING } from "../../constants/theme";
+import { MaterialCommunityIcons as Icon } from "@expo/vector-icons";
 import authService from "../../services/authService";
 import { getErrorMessage } from "../../services/api";
 import ComplaintCard from "./ComplaintCard";
 
+// ─── TOKENS ───────────────────────────────────────────────────────────────────
+const PRIMARY       = "#2563EB";
+const PRIMARY_LIGHT = "#EFF6FF";
+const ERROR         = "#DC2626";
+const GRAY_50       = "#F9FAFB";
+const GRAY_100      = "#F3F4F6";
+const GRAY_200      = "#E5E7EB";
+const GRAY_400      = "#9CA3AF";
+const GRAY_600      = "#4B5563";
+const GRAY_800      = "#1F2937";
+const SUCCESS       = "#059669";
+
+// ─── STATUS CONFIG (for filter tabs) ─────────────────────────────────────────
+const FILTERS = [
+  { key: "ALL",         label: "All",         icon: "format-list-bulleted"     },
+  { key: "PENDING",     label: "Pending",      icon: "clock-outline"            },
+  { key: "OPEN",        label: "Open",         icon: "folder-open-outline"      },
+  { key: "IN_PROGRESS", label: "In Progress",  icon: "progress-wrench"          },
+  { key: "RESOLVED",    label: "Resolved",     icon: "check-circle-outline"     },
+  { key: "REJECTED",    label: "Rejected",     icon: "close-circle-outline"     },
+];
+
+const STATUS_COLOR = {
+  PENDING:     "#D97706",
+  OPEN:        PRIMARY,
+  ASSIGNED:    "#7C3AED",
+  IN_PROGRESS: "#0891B2",
+  RESOLVED:    SUCCESS,
+  CLOSED:      GRAY_400,
+  REJECTED:    ERROR,
+};
+
+// ─── HELPERS ──────────────────────────────────────────────────────────────────
 const extractComplaints = (payload) => {
-  if (Array.isArray(payload)) return payload;
-  if (Array.isArray(payload?.data)) return payload.data;
+  if (Array.isArray(payload))             return payload;
+  if (Array.isArray(payload?.data))       return payload.data;
   if (Array.isArray(payload?.complaints)) return payload.complaints;
   return [];
 };
 
+// ─── EMPTY STATE ──────────────────────────────────────────────────────────────
+const EmptyState = ({ onPress }) => (
+  <View style={styles.emptyWrap}>
+    <View style={styles.emptyIconWrap}>
+      <Icon name="clipboard-text-outline" size={40} color={GRAY_400} />
+    </View>
+    <Text style={styles.emptyTitle}>No complaints yet</Text>
+    <Text style={styles.emptySub}>
+      Raise your first civic issue and follow its status right here.
+    </Text>
+    <TouchableOpacity style={styles.emptyBtn} onPress={onPress} activeOpacity={0.85}>
+      <Icon name="plus" size={18} color="#fff" />
+      <Text style={styles.emptyBtnText}>Raise a Complaint</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+// ─── ERROR STATE ──────────────────────────────────────────────────────────────
+const ErrorState = ({ message, onRetry }) => (
+  <View style={styles.errorWrap}>
+    <View style={styles.errorIconWrap}>
+      <Icon name="wifi-off" size={36} color={ERROR} />
+    </View>
+    <Text style={styles.errorTitle}>Couldn't load complaints</Text>
+    <Text style={styles.errorSub}>{message}</Text>
+    <TouchableOpacity style={styles.retryBtn} onPress={onRetry} activeOpacity={0.85}>
+      <Icon name="refresh" size={16} color="#fff" />
+      <Text style={styles.retryText}>Try again</Text>
+    </TouchableOpacity>
+  </View>
+);
+
+// ─── SUMMARY CHIPS ────────────────────────────────────────────────────────────
+const SummaryChips = ({ complaints }) => {
+  const counts = complaints.reduce((acc, c) => {
+    const s = (c.status || "PENDING").toUpperCase();
+    acc[s] = (acc[s] || 0) + 1;
+    return acc;
+  }, {});
+
+  const chips = [
+    { label: "Total",       value: complaints.length,        color: PRIMARY  },
+    { label: "Active",      value: (counts.OPEN || 0) + (counts.IN_PROGRESS || 0) + (counts.ASSIGNED || 0), color: "#0891B2" },
+    { label: "Resolved",    value: counts.RESOLVED || 0,     color: SUCCESS  },
+    { label: "Rejected",    value: counts.REJECTED || 0,     color: ERROR    },
+  ];
+
+  return (
+    <View style={styles.chipsRow}>
+      {chips.map((chip) => (
+        <View key={chip.label} style={styles.chip}>
+          <Text style={[styles.chipValue, { color: chip.color }]}>{chip.value}</Text>
+          <Text style={styles.chipLabel}>{chip.label}</Text>
+        </View>
+      ))}
+    </View>
+  );
+};
+
+// ─── FILTER TABS ──────────────────────────────────────────────────────────────
+const FilterTabs = ({ active, onChange, complaints }) => {
+  const counts = complaints.reduce((acc, c) => {
+    const s = (c.status || "PENDING").toUpperCase();
+    acc[s] = (acc[s] || 0) + 1;
+    return acc;
+  }, {});
+
+  return (
+    <View>
+      <FlatList
+        horizontal
+        data={FILTERS}
+        keyExtractor={(f) => f.key}
+        showsHorizontalScrollIndicator={false}
+        contentContainerStyle={styles.filterList}
+        renderItem={({ item: f }) => {
+          const isSel = active === f.key;
+          const count = f.key === "ALL" ? complaints.length : (counts[f.key] || 0);
+          return (
+            <TouchableOpacity
+              onPress={() => onChange(f.key)}
+              activeOpacity={0.75}
+              style={[styles.filterTab, isSel && styles.filterTabActive]}
+            >
+              <Icon name={f.icon} size={13} color={isSel ? PRIMARY : GRAY_400} />
+              <Text style={[styles.filterTabText, isSel && styles.filterTabTextActive]}>
+                {f.label}
+              </Text>
+              {count > 0 && (
+                <View style={[styles.filterBadge, isSel && styles.filterBadgeActive]}>
+                  <Text style={[styles.filterBadgeText, isSel && styles.filterBadgeTextActive]}>
+                    {count}
+                  </Text>
+                </View>
+              )}
+            </TouchableOpacity>
+          );
+        }}
+      />
+    </View>
+  );
+};
+
+// ─── MAIN SCREEN ──────────────────────────────────────────────────────────────
 export const ComplaintsListScreen = ({ navigation }) => {
   const [complaints, setComplaints] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading]       = useState(true);
   const [refreshing, setRefreshing] = useState(false);
-  const [error, setError] = useState("");
+  const [error, setError]           = useState("");
+  const [activeFilter, setActiveFilter] = useState("ALL");
 
   const loadComplaints = useCallback(async () => {
     try {
       setError("");
-      const payload = await authService.getComplaints({ limit: 25 });
+      const payload = await authService.getComplaints({ limit: 50 });
       setComplaints(extractComplaints(payload));
     } catch (err) {
       setError(getErrorMessage(err, "Unable to load complaints"));
@@ -51,100 +189,223 @@ export const ComplaintsListScreen = ({ navigation }) => {
     loadComplaints();
   };
 
+  const filtered = activeFilter === "ALL"
+    ? complaints
+    : complaints.filter((c) => (c.status || "").toUpperCase() === activeFilter);
+
   return (
-    <GradientBackground colors={GRADIENTS.softGradient}>
-      <ScrollView
-        contentContainerStyle={{
-          padding: SPACING.lg,
-          paddingBottom: SPACING.xxl,
-          width: "100%",
-          maxWidth: 520,
-          alignSelf: "center",
-        }}
-        refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
-      >
-        <LinearGradient
-          colors={GRADIENTS.primaryGradient}
-          start={{ x: 0, y: 0 }}
-          end={{ x: 1, y: 1 }}
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            justifyContent: "space-between",
-            marginBottom: SPACING.xl,
-            padding: SPACING.lg,
-            borderRadius: 8,
-          }}
+    <View style={styles.flex}>
+      <StatusBar barStyle="light-content" backgroundColor={PRIMARY} />
+
+      {/* ── Header ── */}
+      <View style={styles.headerBar}>
+        <View style={styles.headerCenter}>
+          <Text style={styles.headerTitle}>My Complaints</Text>
+          <Text style={styles.headerSub}>Track your civic issues</Text>
+        </View>
+        <TouchableOpacity
+          style={styles.headerAddBtn}
+          onPress={() => navigation.navigate("CreateComplaint")}
+          activeOpacity={0.85}
         >
-          <View>
-            <Text style={{ fontSize: FONT_SIZES.xl, fontWeight: "700", color: COLORS.card }}>
-              My Complaints
-            </Text>
-            <Text style={{ color: COLORS.card, opacity: 0.85, marginTop: SPACING.xs }}>
-              Track requests from open to closed
-            </Text>
-          </View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate("CreateComplaint")}
-            style={{
-              width: 44,
-              height: 44,
-              borderRadius: 22,
-              alignItems: "center",
-              justifyContent: "center",
-              backgroundColor: "rgba(255,255,255,0.22)",
-            }}
-          >
-            <Icon name="plus" size={24} color={COLORS.card} />
-          </TouchableOpacity>
-        </LinearGradient>
+          <Icon name="plus" size={22} color="#fff" />
+        </TouchableOpacity>
+      </View>
 
-        {error ? (
-          <Card style={{ marginBottom: SPACING.md }}>
-            <Text style={{ color: COLORS.error, marginBottom: SPACING.md }}>{error}</Text>
-            <Button title="Retry" onPress={loadComplaints} size="sm" />
-          </Card>
-        ) : null}
-
-        {loading ? (
-          <ActivityIndicator size="large" color={COLORS.primary} />
-        ) : complaints.length > 0 ? (
-          complaints.map((complaint) => (
-            <ComplaintCard
-              key={complaint._id || complaint.complaint_id}
-              complaint={complaint}
-              onPress={() => navigation.navigate("ComplaintDetail", { complaint })}
+      {/* ── Loading ── */}
+      {loading ? (
+        <View style={styles.centerState}>
+          <ActivityIndicator size="large" color={PRIMARY} />
+          <Text style={styles.loadingText}>Loading complaints…</Text>
+        </View>
+      ) : error ? (
+        <ErrorState message={error} onRetry={loadComplaints} />
+      ) : (
+        <FlatList
+          data={filtered}
+          keyExtractor={(item) => item._id || item.complaint_id || String(Math.random())}
+          contentContainerStyle={styles.listContent}
+          showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl
+              refreshing={refreshing}
+              onRefresh={onRefresh}
+              colors={[PRIMARY]}
+              tintColor={PRIMARY}
             />
-          ))
-        ) : (
-          <Card variant="elevated" style={{ alignItems: "center" }}>
-            <Icon name="clipboard-text-outline" size={40} color={COLORS.textGray} />
-            <Text
-              style={{
-                color: COLORS.textDark,
-                fontSize: FONT_SIZES.base,
-                fontWeight: "700",
-                marginTop: SPACING.md,
-              }}
-            >
-              No complaints yet
-            </Text>
-            <Text
-              style={{
-                color: COLORS.textLight,
-                fontSize: FONT_SIZES.sm,
-                textAlign: "center",
-                marginVertical: SPACING.md,
-              }}
-            >
-              Raise your first civic issue and follow its status here.
-            </Text>
-            <Button title="Raise Complaint" onPress={() => navigation.navigate("CreateComplaint")} />
-          </Card>
-        )}
-      </ScrollView>
-    </GradientBackground>
+          }
+          ListHeaderComponent={
+            complaints.length > 0 ? (
+              <View>
+                {/* Summary chips */}
+                <SummaryChips complaints={complaints} />
+
+                {/* Filter tabs */}
+                <FilterTabs
+                  active={activeFilter}
+                  onChange={setActiveFilter}
+                  complaints={complaints}
+                />
+
+                {/* Result count */}
+                <View style={styles.resultRow}>
+                  <Text style={styles.resultText}>
+                    {filtered.length} {activeFilter === "ALL" ? "total" : activeFilter.toLowerCase().replace("_", " ")} complaint{filtered.length !== 1 ? "s" : ""}
+                  </Text>
+                </View>
+              </View>
+            ) : null
+          }
+          ListEmptyComponent={
+            complaints.length === 0
+              ? <EmptyState onPress={() => navigation.navigate("CreateComplaint")} />
+              : (
+                <View style={styles.filterEmptyWrap}>
+                  <Icon name="filter-off-outline" size={32} color={GRAY_400} />
+                  <Text style={styles.filterEmptyText}>
+                    No {activeFilter.toLowerCase().replace("_", " ")} complaints
+                  </Text>
+                  <TouchableOpacity onPress={() => setActiveFilter("ALL")}>
+                    <Text style={styles.filterEmptyLink}>Show all</Text>
+                  </TouchableOpacity>
+                </View>
+              )
+          }
+          renderItem={({ item }) => (
+            <ComplaintCard
+              complaint={item}
+              onPress={() => navigation.navigate("ComplaintDetail", { complaint: item })}
+            />
+          )}
+          ItemSeparatorComponent={() => <View style={{ height: 10 }} />}
+          ListFooterComponent={<View style={{ height: 32 }} />}
+        />
+      )}
+
+      {/* ── FAB ── */}
+      {!loading && !error && (
+        <TouchableOpacity
+          style={styles.fab}
+          onPress={() => navigation.navigate("CreateComplaint")}
+          activeOpacity={0.85}
+        >
+          <Icon name="plus" size={26} color="#fff" />
+        </TouchableOpacity>
+      )}
+    </View>
   );
 };
+
+// ─── STYLES ───────────────────────────────────────────────────────────────────
+const styles = StyleSheet.create({
+  flex: { flex: 1, backgroundColor: GRAY_50 },
+
+  /* header */
+  headerBar: {
+    backgroundColor: PRIMARY,
+    flexDirection: "row", alignItems: "center",
+    paddingTop: Platform.OS === "ios" ? 52 : 16,
+    paddingBottom: 16, paddingHorizontal: 16, gap: 12,
+  },
+  headerCenter: { flex: 1 },
+  headerTitle:  { color: "#fff", fontSize: 20, fontWeight: "800", letterSpacing: -0.3 },
+  headerSub:    { color: "rgba(255,255,255,0.7)", fontSize: 12, marginTop: 1 },
+  headerAddBtn: {
+    width: 38, height: 38, borderRadius: 19,
+    backgroundColor: "rgba(255,255,255,0.2)",
+    alignItems: "center", justifyContent: "center",
+  },
+
+  /* summary chips */
+  chipsRow: {
+    flexDirection: "row",
+    backgroundColor: "#fff",
+    marginHorizontal: 16, marginTop: 14,
+    borderRadius: 14, paddingVertical: 12,
+    shadowColor: "#000", shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.05, shadowRadius: 6, elevation: 2,
+  },
+  chip:       { flex: 1, alignItems: "center" },
+  chipValue:  { fontSize: 20, fontWeight: "900" },
+  chipLabel:  { fontSize: 10, color: GRAY_400, fontWeight: "600", marginTop: 2, textTransform: "uppercase", letterSpacing: 0.4 },
+
+  /* filter tabs */
+  filterList: { paddingHorizontal: 16, paddingVertical: 12, gap: 8 },
+  filterTab: {
+    flexDirection: "row", alignItems: "center", gap: 5,
+    paddingHorizontal: 12, paddingVertical: 7,
+    borderRadius: 20, backgroundColor: "#fff",
+    borderWidth: 1.5, borderColor: GRAY_200,
+  },
+  filterTabActive:      { backgroundColor: PRIMARY_LIGHT, borderColor: PRIMARY },
+  filterTabText:        { fontSize: 12, fontWeight: "600", color: GRAY_400 },
+  filterTabTextActive:  { color: PRIMARY, fontWeight: "700" },
+  filterBadge: {
+    backgroundColor: GRAY_100, borderRadius: 10,
+    paddingHorizontal: 6, paddingVertical: 1,
+  },
+  filterBadgeActive:    { backgroundColor: PRIMARY + "20" },
+  filterBadgeText:      { fontSize: 10, fontWeight: "700", color: GRAY_400 },
+  filterBadgeTextActive:{ color: PRIMARY },
+
+  /* result row */
+  resultRow: { paddingHorizontal: 16, paddingBottom: 8 },
+  resultText: { fontSize: 11, color: GRAY_400, fontWeight: "600", textTransform: "uppercase", letterSpacing: 0.4 },
+
+  /* list */
+  listContent: { paddingHorizontal: 16, paddingTop: 2 },
+
+  /* loading */
+  centerState:  { flex: 1, alignItems: "center", justifyContent: "center", gap: 12 },
+  loadingText:  { color: GRAY_400, fontSize: 14, marginTop: 4 },
+
+  /* empty */
+  emptyWrap: {
+    alignItems: "center", paddingHorizontal: 32,
+    paddingTop: 48, paddingBottom: 32,
+  },
+  emptyIconWrap: {
+    width: 80, height: 80, borderRadius: 40,
+    backgroundColor: GRAY_100, alignItems: "center", justifyContent: "center", marginBottom: 16,
+  },
+  emptyTitle:   { fontSize: 18, fontWeight: "800", color: GRAY_800, marginBottom: 8 },
+  emptySub:     { fontSize: 13, color: GRAY_400, textAlign: "center", lineHeight: 20, marginBottom: 24 },
+  emptyBtn: {
+    flexDirection: "row", alignItems: "center", gap: 6,
+    backgroundColor: PRIMARY, borderRadius: 12,
+    paddingHorizontal: 24, paddingVertical: 13,
+  },
+  emptyBtnText: { color: "#fff", fontSize: 14, fontWeight: "800" },
+
+  /* filter empty */
+  filterEmptyWrap: { alignItems: "center", paddingTop: 40, gap: 8 },
+  filterEmptyText: { fontSize: 14, color: GRAY_600, fontWeight: "600" },
+  filterEmptyLink: { color: PRIMARY, fontSize: 13, fontWeight: "700", marginTop: 4 },
+
+  /* error */
+  errorWrap: { flex: 1, alignItems: "center", justifyContent: "center", padding: 32, gap: 10 },
+  errorIconWrap: {
+    width: 72, height: 72, borderRadius: 36,
+    backgroundColor: "#FEF2F2", alignItems: "center", justifyContent: "center", marginBottom: 4,
+  },
+  errorTitle:  { fontSize: 17, fontWeight: "700", color: GRAY_800 },
+  errorSub:    { fontSize: 13, color: GRAY_400, textAlign: "center", lineHeight: 20 },
+  retryBtn: {
+    flexDirection: "row", alignItems: "center", gap: 6,
+    marginTop: 8, backgroundColor: PRIMARY,
+    paddingHorizontal: 20, paddingVertical: 11, borderRadius: 12,
+  },
+  retryText: { color: "#fff", fontWeight: "700", fontSize: 14 },
+
+  /* FAB */
+  fab: {
+    position: "absolute", bottom: 24, right: 20,
+    width: 56, height: 56, borderRadius: 28,
+    backgroundColor: PRIMARY,
+    alignItems: "center", justifyContent: "center",
+    shadowColor: PRIMARY, shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.4, shadowRadius: 12, elevation: 8,
+  },
+});
 
 export default ComplaintsListScreen;
