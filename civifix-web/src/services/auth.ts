@@ -120,23 +120,23 @@ export const authService = {
 
   // ─── SUPER ADMIN ─────────────────────────────────────────────────────────────
   getAdminStats: async (): Promise<any> => {
-    const res = await api.get("/api/v1/admin/stats");
+    const res = await api.get("/admin/stats");
     return unwrapResponse(res);
   },
 
   // ─── DISTRICT ADMIN ──────────────────────────────────────────────────────────
   getInspectors: async (): Promise<any[]> => {
-    const res = await api.get("/api/v1/admin/inspectors");
+    const res = await api.get("/admin/inspectors");
     return unwrapResponse<any[]>(res);
   },
 
   getWorkers: async (): Promise<any[]> => {
-    const res = await api.get("/api/v1/admin/workers");
+    const res = await api.get("/admin/workers");
     return unwrapResponse<any[]>(res);
   },
 
   getDistrictUsers: async (): Promise<any[]> => {
-    const res = await api.get("/api/v1/admin/users");
+    const res = await api.get("/admin/users");
     return unwrapResponse<any[]>(res);
   },
 
@@ -144,12 +144,12 @@ export const authService = {
   getWardComplaints: async ({ page = 1, limit = 20, status }: { page?: number; limit?: number; status?: string } = {}): Promise<any> => {
     const params: any = { page, limit };
     if (status) params.status = status;
-    const res = await api.get("/api/v1/inspector/complaints", { params });
+    const res = await api.get("/inspector/complaints", { params });
     return unwrapResponse(res);
   },
 
   getWardWorkers: async (): Promise<any[]> => {
-    const res = await api.get("/api/v1/inspector/workers");
+    const res = await api.get("/inspector/workers");
     return unwrapResponse<any[]>(res);
   },
 
@@ -157,7 +157,7 @@ export const authService = {
   getAssignedComplaints: async ({ page = 1, limit = 20, status }: { page?: number; limit?: number; status?: string } = {}): Promise<any> => {
     const params: any = { page, limit };
     if (status) params.status = status;
-    const res = await api.get("/api/v1/worker/complaints", { params });
+    const res = await api.get("/worker/complaints", { params });
     return unwrapResponse(res);
   },
 

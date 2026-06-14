@@ -28,15 +28,19 @@ async def get_ward_complaints(
     """Get complaints for inspector's ward"""
     try:
         # Get inspector's ward
-        inspector = await db.users.find_one({"_id": ObjectId(current_user["user_id"])})
+        ward = await db.wards.find_one({
+            "inspector_id": ObjectId(current_user["user_id"]),
+            "is_active": True
+        })
 
-        if not inspector or not inspector.get("ward_id"):
+        if not ward:
             return ResponseHandler.error(
                 message="Inspector not assigned to any ward",
                 status_code=status.HTTP_400_BAD_REQUEST
             )
-
-        query = {"ward_id": ObjectId(inspector["ward_id"])}
+        query = {
+            "ward_id": ward["_id"]
+        }
         if status:
             query["status"] = status
 

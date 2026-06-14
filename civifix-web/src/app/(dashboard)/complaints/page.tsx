@@ -75,9 +75,10 @@ export default function ComplaintsListPage() {
   const activeQuery = isInspector ? inspectorQuery : isWorker ? workerQuery : citizenQuery;
   const loading = activeQuery.isLoading;
   const data: any = activeQuery.data;
-  const complaints = data?.data || [];
-
+  const complaints = data?.complaints || [];
   const filteredComplaints = complaints;
+  console.log("activeQuery.data", activeQuery.data);
+  console.log("complaints", complaints);
 
   const counts = useMemo(() => {
     const acc: Record<string, number> = {};
