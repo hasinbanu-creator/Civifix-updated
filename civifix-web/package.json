@@ -7,7 +7,8 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "eslint",
-    "test:e2e": "node e2e_tests/run.js"
+    "test:e2e": "node e2e_tests/run.js",
+    "test:e2e:report": "node e2e_tests/generate_report.js"
   },
   "dependencies": {
     "@base-ui/react": "^1.5.0",

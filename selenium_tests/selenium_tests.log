@@ -1,0 +1,3083 @@
+2026-06-17 11:39:26,130 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:39:28,606 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-06-17 11:39:29,373 - WDM - INFO - There is no [win64] chromedriver "149.0.7827.155" for browser google-chrome "149.0.7827" in cache
+2026-06-17 11:39:30,578 - WDM - INFO - There is no [win64] chromedriver "149.0.7827.155" for browser google-chrome "149.0.7827" in cache
+2026-06-17 11:39:30,578 - WDM - INFO - Get LATEST chromedriver version for google-chrome
+2026-06-17 11:39:32,739 - WDM - INFO - WebDriver version 149.0.7827.155 selected
+2026-06-17 11:39:32,755 - WDM - INFO - Modern chrome version https://storage.googleapis.com/chrome-for-testing-public/149.0.7827.155/win64/chromedriver-win64.zip
+2026-06-17 11:39:32,755 - WDM - INFO - About to download new driver from https://storage.googleapis.com/chrome-for-testing-public/149.0.7827.155/win64/chromedriver-win64.zip
+2026-06-17 11:39:33,939 - WDM - INFO - Driver downloading response is 200
+2026-06-17 11:39:54,905 - WDM - INFO - Driver has been saved in cache [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155]
+2026-06-17 11:39:58,921 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:40:21,199 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:40:43,502 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:40:43,502 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:40:43,502 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:40:44,706 - conftest - INFO - WebDriver closed
+2026-06-17 11:40:44,706 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:40:46,452 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:40:49,360 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:40:52,221 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:41:12,802 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:41:12,802 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:41:12,802 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:41:15,856 - conftest - INFO - WebDriver closed
+2026-06-17 11:41:15,856 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:41:19,613 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:41:22,298 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:41:25,302 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:41:45,878 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:41:45,883 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:41:45,884 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:41:49,698 - conftest - INFO - WebDriver closed
+2026-06-17 11:41:49,699 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:41:51,216 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:41:53,778 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:41:57,851 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:46:06,420 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:46:07,538 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:46:10,677 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:46:12,925 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:46:33,607 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:46:33,607 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:46:33,618 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:46:34,486 - conftest - INFO - WebDriver closed
+2026-06-17 11:46:34,486 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:46:35,986 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:46:38,218 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:46:40,640 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:47:01,285 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:47:01,285 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:47:01,285 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:47:04,636 - conftest - INFO - WebDriver closed
+2026-06-17 11:47:04,636 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:47:05,684 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:47:09,020 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:47:10,631 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:47:32,583 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:47:32,599 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:47:32,600 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:47:35,680 - conftest - INFO - WebDriver closed
+2026-06-17 11:47:35,680 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:47:36,849 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:47:40,096 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:47:43,117 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:48:03,718 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:48:03,718 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:48:03,718 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:48:09,082 - conftest - INFO - WebDriver closed
+2026-06-17 11:48:09,082 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:48:10,931 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:48:13,516 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:48:15,921 - base_page - INFO - Navigated to: http://localhost:3000/signup
+2026-06-17 11:48:36,636 - base_page - ERROR - Element not found: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:48:36,636 - base_page - ERROR - Type text failed: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:48:36,636 - test_scenarios - ERROR - Signup test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:48:39,631 - conftest - INFO - WebDriver closed
+2026-06-17 11:48:39,631 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:48:40,713 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:48:43,111 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:49:03,696 - base_page - ERROR - Element not found: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:49:03,696 - base_page - ERROR - Type text failed: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:49:07,911 - conftest - INFO - WebDriver closed
+2026-06-17 11:49:07,912 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:49:09,063 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:49:12,231 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:49:15,530 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:49:29,738 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:49:31,540 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:49:35,045 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:49:36,972 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:49:36,973 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:49:36,973 - test_scenarios - ERROR - Dashboard test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:49:40,612 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:49:44,435 - conftest - INFO - WebDriver closed
+2026-06-17 11:49:44,435 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:49:45,712 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:49:49,513 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:49:55,422 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:50:01,891 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:01,891 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:01,891 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:06,993 - conftest - INFO - WebDriver closed
+2026-06-17 11:50:06,993 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:50:08,826 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:50:12,109 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:50:16,487 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:16,487 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:18,547 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:50:27,458 - conftest - INFO - WebDriver closed
+2026-06-17 11:50:27,458 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:50:29,375 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:50:33,694 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:50:39,355 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:39,356 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:39,356 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:50:45,386 - conftest - INFO - WebDriver closed
+2026-06-17 11:50:45,386 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:50:46,690 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:50:49,111 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:50:54,334 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:51:02,834 - base_page - ERROR - Click failed: ('xpath', "//button[contains(text(), 'Submit')] | //button[contains(text(), 'Raise Complaint')]") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:08,170 - conftest - INFO - WebDriver closed
+2026-06-17 11:51:08,172 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:51:10,123 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:51:13,344 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:51:15,341 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:15,341 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:15,341 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:17,300 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:51:25,589 - conftest - INFO - WebDriver closed
+2026-06-17 11:51:25,589 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:51:28,355 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:51:32,276 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:51:37,482 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:51:38,014 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:38,014 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:44,171 - conftest - INFO - WebDriver closed
+2026-06-17 11:51:44,171 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:51:46,188 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:51:48,973 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:51:54,163 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:51:58,594 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:58,594 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:51:58,595 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:52:01,404 - conftest - INFO - WebDriver closed
+2026-06-17 11:52:01,404 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:52:04,534 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:52:07,605 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:52:13,144 - base_page - INFO - Navigated to: http://localhost:3000/signup
+2026-06-17 11:52:14,833 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:52:14,834 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:52:22,920 - conftest - INFO - WebDriver closed
+2026-06-17 11:52:22,922 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:52:25,027 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:52:27,120 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:52:33,826 - base_page - ERROR - Element not found: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:52:33,826 - base_page - ERROR - Type text failed: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:52:33,826 - test_scenarios - ERROR - Signup test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:52:43,342 - conftest - INFO - WebDriver closed
+2026-06-17 11:52:43,344 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:52:44,944 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:52:45,488 - conftest - INFO - WebDriver closed
+2026-06-17 11:52:45,490 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:52:48,332 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:52:49,239 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:52:52,348 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:53:04,788 - conftest - INFO - WebDriver closed
+2026-06-17 11:53:09,551 - base_page - ERROR - Element not found: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:53:09,551 - base_page - ERROR - Type text failed: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:53:12,768 - conftest - INFO - WebDriver closed
+2026-06-17 11:53:12,771 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:53:13,914 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:53:16,396 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:53:19,026 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:53:39,645 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:53:39,646 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:53:39,646 - test_scenarios - ERROR - Dashboard test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:53:42,166 - conftest - INFO - WebDriver closed
+2026-06-17 11:53:42,168 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:53:43,092 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:53:45,226 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:53:46,036 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:54:06,691 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:54:06,692 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:54:09,482 - conftest - INFO - WebDriver closed
+2026-06-17 11:54:09,486 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:54:10,307 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:54:12,373 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:54:37,406 - base_page - ERROR - Click failed: ('xpath', "//button[contains(text(), 'Submit')] | //button[contains(text(), 'Raise Complaint')]") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:54:40,297 - conftest - INFO - WebDriver closed
+2026-06-17 11:54:40,301 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:54:41,246 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:54:43,399 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:54:45,103 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:55:05,674 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:55:05,675 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:55:08,212 - conftest - INFO - WebDriver closed
+2026-06-17 11:55:08,216 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:55:09,291 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:55:11,440 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:55:13,069 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 11:55:33,687 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:55:33,687 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff7aa5e3fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff7aa5e4000+14980]
+	chromedriver!(No symbol) [0x7ff7aa12793d]
+	chromedriver!(No symbol) [0x7ff7aa181aad]
+	chromedriver!(No symbol) [0x7ff7aa181dac]
+	chromedriver!(No symbol) [0x7ff7aa1d27d7]
+	chromedriver!(No symbol) [0x7ff7aa1cf39b]
+	chromedriver!(No symbol) [0x7ff7aa17401c]
+	chromedriver!(No symbol) [0x7ff7aa174f43]
+	chromedriver!GetHandleVerifier [0x7ff7aabc7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff7aabc1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff7aabe7115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff7aa601dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff7aa60a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff7aa5ed8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff7aa5d1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 11:55:34,447 - conftest - INFO - WebDriver closed
+2026-06-17 11:55:34,449 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:55:35,545 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:55:37,757 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:55:54,360 - conftest - INFO - WebDriver closed
+2026-06-17 11:55:54,363 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 11:55:55,192 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 11:55:57,571 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 11:56:06,726 - conftest - INFO - WebDriver closed
+2026-06-17 18:15:30,958 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:15:32,391 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:15:36,039 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:15:38,392 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:15:59,060 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:15:59,060 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:15:59,060 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:01,024 - conftest - INFO - WebDriver closed
+2026-06-17 18:16:01,024 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:16:02,539 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:16:05,547 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:16:06,047 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:16:26,639 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:26,639 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:26,639 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:30,022 - conftest - INFO - WebDriver closed
+2026-06-17 18:16:30,022 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:16:31,071 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:16:33,556 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:16:35,591 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:16:56,252 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:56,252 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:56,252 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:16:59,171 - conftest - INFO - WebDriver closed
+2026-06-17 18:16:59,172 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:17:00,287 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:17:03,703 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:17:06,428 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:17:23,855 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:17:25,693 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:17:27,214 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:17:27,214 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:17:27,214 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:17:29,802 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:17:32,987 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:17:36,052 - conftest - INFO - WebDriver closed
+2026-06-17 18:17:36,052 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:17:37,735 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:17:41,938 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:17:46,070 - base_page - INFO - Navigated to: http://localhost:3000/signup
+2026-06-17 18:17:53,825 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:17:53,825 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:17:53,825 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:17:56,339 - conftest - INFO - WebDriver closed
+2026-06-17 18:17:56,339 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:17:57,851 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:18:00,802 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:18:04,296 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:18:06,734 - base_page - ERROR - Element not found: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:06,734 - base_page - ERROR - Type text failed: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:06,734 - test_scenarios - ERROR - Signup test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:11,733 - conftest - INFO - WebDriver closed
+2026-06-17 18:18:11,735 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:18:13,984 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:18:16,747 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:18:24,916 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:24,916 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:24,916 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:27,383 - conftest - INFO - WebDriver closed
+2026-06-17 18:18:27,383 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:18:29,666 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:18:32,617 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:18:35,651 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:18:37,799 - base_page - ERROR - Element not found: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:37,799 - base_page - ERROR - Type text failed: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:42,464 - conftest - INFO - WebDriver closed
+2026-06-17 18:18:42,466 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:18:43,998 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:18:46,617 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:18:49,883 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:18:56,931 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:56,931 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:56,931 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:18:59,456 - conftest - INFO - WebDriver closed
+2026-06-17 18:18:59,471 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:19:01,305 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:19:04,218 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:19:07,968 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:19:10,664 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:10,664 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:10,664 - test_scenarios - ERROR - Dashboard test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:17,464 - conftest - INFO - WebDriver closed
+2026-06-17 18:19:17,464 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:19:19,214 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:19:21,883 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:19:24,965 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:19:28,613 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:28,613 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:28,613 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:31,197 - conftest - INFO - WebDriver closed
+2026-06-17 18:19:31,197 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:19:32,330 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:19:35,016 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:19:36,710 - base_page - INFO - Navigated to: http://localhost:3000/signup
+2026-06-17 18:19:45,762 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:45,762 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:59,128 - base_page - ERROR - Element not found: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:59,128 - base_page - ERROR - Type text failed: ('name', 'name') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:19:59,128 - test_scenarios - ERROR - Signup test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:20:07,355 - conftest - INFO - WebDriver closed
+2026-06-17 18:20:07,355 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:20:07,624 - conftest - INFO - WebDriver closed
+2026-06-17 18:20:07,624 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:20:08,657 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:20:08,860 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:20:12,317 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:20:12,603 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:20:33,043 - base_page - ERROR - Element not found: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:20:33,043 - base_page - ERROR - Type text failed: ('xpath', "//input[@type='text' and @placeholder='Enter OTP']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:20:35,759 - conftest - INFO - WebDriver closed
+2026-06-17 18:20:35,760 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:20:37,093 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:20:39,645 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:20:39,729 - base_page - ERROR - Click failed: ('xpath', "//button[contains(text(), 'Submit')] | //button[contains(text(), 'Raise Complaint')]") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:20:42,461 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:20:46,192 - conftest - INFO - WebDriver closed
+2026-06-17 18:20:46,193 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:20:47,243 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:20:49,947 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:20:52,749 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:21:03,351 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:03,351 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:03,351 - test_scenarios - ERROR - Dashboard test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:13,375 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:13,375 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:15,624 - conftest - INFO - WebDriver closed
+2026-06-17 18:21:15,625 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:21:16,791 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:21:18,830 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:21:21,247 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:21:41,874 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:41,874 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:21:50,773 - conftest - INFO - WebDriver closed
+2026-06-17 18:21:50,775 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:21:52,110 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:21:52,778 - conftest - INFO - WebDriver closed
+2026-06-17 18:21:52,778 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:21:54,806 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:21:55,829 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:21:57,924 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:22:00,392 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:22:17,923 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:22:17,923 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:22:26,755 - base_page - ERROR - Click failed: ('xpath', "//button[contains(text(), 'Submit')] | //button[contains(text(), 'Raise Complaint')]") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:22:27,420 - conftest - INFO - WebDriver closed
+2026-06-17 18:22:27,422 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:22:29,123 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:22:31,241 - conftest - INFO - WebDriver closed
+2026-06-17 18:22:31,324 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:22:31,431 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:22:35,037 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:22:37,663 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:22:39,890 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:22:48,288 - conftest - INFO - WebDriver closed
+2026-06-17 18:22:48,288 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:22:50,104 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:22:52,723 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:23:00,923 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:23:00,923 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:23:06,935 - conftest - INFO - WebDriver closed
+2026-06-17 18:23:08,285 - conftest - INFO - WebDriver closed
+2026-06-17 18:23:08,286 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:23:09,986 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:23:13,003 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:23:13,854 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:23:34,453 - base_page - ERROR - Element not found: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:23:34,453 - base_page - ERROR - Type text failed: ('name', 'email') - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:23:37,435 - conftest - INFO - WebDriver closed
+2026-06-17 18:23:37,435 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:23:38,366 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:23:40,829 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:23:57,304 - conftest - INFO - WebDriver closed
+2026-06-17 18:23:57,304 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:23:58,500 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:24:01,266 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:24:09,953 - conftest - INFO - WebDriver closed
+2026-06-17 18:34:13,591 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:34:14,960 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:34:17,452 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:34:19,812 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:34:20,739 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:34:20,960 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:34:41,572 - base_page - ERROR - Wait for visibility failed: ('xpath', "//input[@inputmode='numeric' and @maxlength='1']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:34:41,588 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:34:44,872 - conftest - INFO - WebDriver closed
+2026-06-17 18:34:44,872 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:34:46,054 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:34:49,095 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:34:49,955 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:34:52,193 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:34:52,622 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:34:52,962 - base_page - INFO - Screenshot saved: ./screenshots\test_login_blank_PASS.png
+2026-06-17 18:34:56,268 - conftest - INFO - WebDriver closed
+2026-06-17 18:34:56,270 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:34:57,187 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:34:59,555 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:35:01,526 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:35:02,652 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:35:03,136 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:35:13,403 - base_page - INFO - Screenshot saved: ./screenshots\test_login_invalid-email_FAIL.png
+2026-06-17 18:35:17,353 - conftest - INFO - WebDriver closed
+2026-06-17 18:35:17,354 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:35:18,686 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:35:21,404 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:35:23,387 - base_page - INFO - Navigated to: http://localhost:3000/signup
+2026-06-17 18:35:24,641 - base_page - INFO - Typed text in: ('id', 'signup-name')
+2026-06-17 18:35:25,307 - base_page - INFO - Typed text in: ('id', 'signup-email')
+2026-06-17 18:35:25,593 - base_page - INFO - Typed text in: ('id', 'signup-mobile')
+2026-06-17 18:35:25,807 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'NEXT')]")
+2026-06-17 18:35:26,395 - base_page - INFO - Typed text in: ('xpath', "//textarea[@placeholder='House / Street / Locality']")
+2026-06-17 18:35:26,789 - test_scenarios - ERROR - Signup test failed: Message: javascript error: missing ) after argument list
+  (Session info: chrome=149.0.7827.104)
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da24f8b1]
+	chromedriver!(No symbol) [0x7ff6da252c0f]
+	chromedriver!(No symbol) [0x7ff6da2f0748]
+	chromedriver!(No symbol) [0x7ff6da2ca3ca]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:35:29,718 - conftest - INFO - WebDriver closed
+2026-06-17 18:35:29,719 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:35:30,685 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:35:33,004 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:35:34,941 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:35:36,020 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:35:36,403 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:35:50,021 - conftest - INFO - WebDriver closed
+2026-06-17 18:35:50,021 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:35:51,169 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:35:53,604 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:35:54,533 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:35:56,514 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:35:56,819 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:36:06,825 - test_scenarios - ERROR - Dashboard test failed: Expected 6 OTP inputs
+2026-06-17 18:36:10,517 - conftest - INFO - WebDriver closed
+2026-06-17 18:36:10,517 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:36:11,683 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:36:14,141 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:36:16,039 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:36:17,026 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:36:17,219 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:36:31,566 - conftest - INFO - WebDriver closed
+2026-06-17 18:36:31,566 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:36:32,716 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:36:35,439 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:36:37,772 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:36:38,584 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:36:38,866 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:36:52,265 - conftest - INFO - WebDriver closed
+2026-06-17 18:36:52,265 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:36:53,265 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:36:55,786 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:36:58,118 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:36:58,935 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:36:59,203 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:37:12,301 - conftest - INFO - WebDriver closed
+2026-06-17 18:37:12,301 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:37:13,164 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:37:15,466 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:37:17,924 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:37:18,769 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:37:19,097 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:37:32,395 - conftest - INFO - WebDriver closed
+2026-06-17 18:37:32,397 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:37:33,429 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:37:36,003 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:37:45,180 - conftest - INFO - WebDriver closed
+2026-06-17 18:37:45,180 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:37:46,217 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:37:48,881 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:37:56,728 - conftest - INFO - WebDriver closed
+2026-06-17 18:40:56,720 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:40:58,070 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:41:00,294 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:41:02,716 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:41:03,691 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:41:03,987 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:41:28,286 - conftest - INFO - WebDriver closed
+2026-06-17 18:41:28,286 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:41:29,603 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:41:32,574 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:41:34,991 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:41:36,467 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:41:36,870 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:42:00,600 - conftest - INFO - WebDriver closed
+2026-06-17 18:43:18,021 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:43:19,626 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:43:22,159 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:43:24,307 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:43:25,399 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:43:25,651 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:43:46,262 - base_page - ERROR - Wait for visibility failed: ('xpath', "//input[@inputmode='numeric' and @maxlength='1']") - Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:43:46,262 - test_scenarios - ERROR - Login test failed: Message: 
+Stacktrace:
+	chromedriver!GetHandleVerifier [0x7ff6da703fa5+14925]
+	chromedriver!GetHandleVerifier [0x7ff6da704000+14980]
+	chromedriver!(No symbol) [0x7ff6da24793d]
+	chromedriver!(No symbol) [0x7ff6da2a1aad]
+	chromedriver!(No symbol) [0x7ff6da2a1dac]
+	chromedriver!(No symbol) [0x7ff6da2f27d7]
+	chromedriver!(No symbol) [0x7ff6da2ef39b]
+	chromedriver!(No symbol) [0x7ff6da29401c]
+	chromedriver!(No symbol) [0x7ff6da294f43]
+	chromedriver!GetHandleVerifier [0x7ff6dace7591+5f7f11]
+	chromedriver!GetHandleVerifier [0x7ff6dace1902+5f2282]
+	chromedriver!GetHandleVerifier [0x7ff6dad07115+617a95]
+	chromedriver!GetHandleVerifier [0x7ff6da721dce+3274e]
+	chromedriver!GetHandleVerifier [0x7ff6da72a82c+3b1ac]
+	chromedriver!GetHandleVerifier [0x7ff6da70d744+1e0c4]
+	chromedriver!GetHandleVerifier [0x7ff6da70d8d4+1e254]
+	chromedriver!GetHandleVerifier [0x7ff6da6f1447+1dc7]
+	KERNEL32!BaseThreadInitThunk [0x7ff853fc257d+1d]
+	ntdll!RtlUserThreadStart [0x7ff855a6af08+28]
+
+2026-06-17 18:43:49,445 - conftest - INFO - WebDriver closed
+2026-06-17 18:43:49,447 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:43:50,414 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:43:53,030 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:43:53,729 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:43:55,723 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:43:56,241 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:43:56,495 - base_page - INFO - Screenshot saved: ./screenshots\test_login_blank_PASS.png
+2026-06-17 18:43:59,618 - conftest - INFO - WebDriver closed
+2026-06-17 18:43:59,618 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:44:00,556 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:44:02,913 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:44:04,934 - base_page - INFO - Navigated to: http://localhost:3000/login
+2026-06-17 18:44:05,946 - base_page - INFO - Typed text in: ('id', 'email-input')
+2026-06-17 18:44:06,192 - base_page - INFO - Clicked element: ('xpath', "//button[contains(translate(normalize-space(.), 'abcdefghijklmnopqrstuvwxyz', 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'), 'CONTINUE')]")
+2026-06-17 18:44:16,462 - base_page - INFO - Screenshot saved: ./screenshots\test_login_invalid-email_FAIL.png
+2026-06-17 18:44:20,175 - conftest - INFO - WebDriver closed
+2026-06-17 18:44:20,175 - WDM - INFO - ====== WebDriver manager ======
+2026-06-17 18:44:21,567 - WDM - INFO - Driver [C:\Users\HASIN\.wdm\drivers\chromedriver\win64\149.0.7827.155\chromedriver-win64/chromedriver.exe] found in cache by browser version
+2026-06-17 18:44:24,008 - conftest - INFO - WebDriver initialized - chrome
+2026-06-17 18:44:26,379 - base_page - INFO - Navigated to: http://localhost:3000/signup
+2026-06-17 18:44:27,729 - base_page - INFO - Typed text in: ('id', 'signup-name')
