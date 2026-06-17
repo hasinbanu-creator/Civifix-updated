@@ -174,7 +174,7 @@ export const authService = {
   },
 
   getComplaint: async (id: string | number): Promise<Complaint> => {
-    if (e2eMocksEnabled) return (e2eComplaints.find((c) => c._id === id || c.complaint_id === id) || e2eComplaints[0]) as Complaint;
+    if (e2eMocksEnabled) return (e2eComplaints.find((c) => c._id === id || c.complaint_id === id) || e2eComplaints[0]) as unknown as Complaint;
     const response = await api.get(ENDPOINTS.GET_COMPLAINT(id));
     return unwrapResponse<Complaint>(response);
   },
